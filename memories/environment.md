@@ -35,13 +35,14 @@ Surveyed 2026-11-01. Re-check if something below stops working.
   pages), WebSearch/WebFetch, SendUserFile, scheduling (CronCreate, /schedule,
   /loop), Monitor.
 - Connectors present in the session: Claude Docs (ready), Google Calendar
-  (authorized 2026-11-01; list/search/create/update events work; the
-  list_calendars call lacks scope, so use the primary calendar by default),
+  (authorized 2026-11-01 with full read/write; the list_calendars call lacks
+  scope, so calendars are addressed by ID from memory),
   Gmail and Google Drive (not yet authorized).
 - To authorize a claude.ai connector from the phone: connect it at
   https://claude.ai/customize/connectors, then send
   `/mcp reconnect claude.ai <Connector Name>` in the session. Confirmed working
-  for Google Calendar.
+  for Google Calendar. If writes fail with "Insufficient scope", disconnect
+  and reconnect the connector on that page, ticking all Google consent boxes.
 - Skills available: docs, docx, xlsx, pptx, pdf, google-workspace, dataviz,
   artifact-design, schedule, loop, claude-in-chrome, and others.
 - Auto mode is on: a permission classifier blocks commands that read
