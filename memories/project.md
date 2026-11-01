@@ -21,10 +21,19 @@ notes/         Free-form notes, ideas, meeting notes (one Markdown file per topi
 docs/          Longer documents, drafts, reports
 scripts/       Small utility scripts created on request
 inbox/         Unsorted items to be processed later
+repos/         Other git repositories cloned on request (gitignored, see below)
 ```
 
 Create new top-level folders only when none of the above fits, and document them
 here and in CLAUDE.md.
+
+## Cloned repositories (set 2026-11-01)
+
+- Other repos the owner asks for are cloned into `repos/<name>` inside this
+  workspace. `repos/` is gitignored, so nested clones never land in this repo's
+  history. Their state lives in their own remotes: commit and push there when
+  asked and when access allows. The folder is ephemeral like everything else
+  here; re-clone if it is missing after a container restart.
 
 ## Conventions
 
