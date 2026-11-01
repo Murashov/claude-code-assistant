@@ -34,8 +34,14 @@ Surveyed 2026-11-01. Re-check if something below stops working.
 - Core: Bash, Read/Write/Edit, Agent (subagents), Artifact (publish HTML
   pages), WebSearch/WebFetch, SendUserFile, scheduling (CronCreate, /schedule,
   /loop), Monitor.
-- Connectors present in the session: Claude Docs (ready), Gmail, Google
-  Calendar, Google Drive (the Google ones need the owner to authenticate first).
+- Connectors present in the session: Claude Docs (ready), Google Calendar
+  (authorized 2026-11-01; list/search/create/update events work; the
+  list_calendars call lacks scope, so use the primary calendar by default),
+  Gmail and Google Drive (not yet authorized).
+- To authorize a claude.ai connector from the phone: connect it at
+  https://claude.ai/customize/connectors, then send
+  `/mcp reconnect claude.ai <Connector Name>` in the session. Confirmed working
+  for Google Calendar.
 - Skills available: docs, docx, xlsx, pptx, pdf, google-workspace, dataviz,
   artifact-design, schedule, loop, claude-in-chrome, and others.
 - Auto mode is on: a permission classifier blocks commands that read
