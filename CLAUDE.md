@@ -21,3 +21,4 @@ memories in `memories/`. Read only the memories a task needs.
 |------|---------------|
 | `memories/project.md` | What this repo is, folder layout, naming conventions, git remote and push rules |
 | `memories/identity.md` | Claude's role as personal assistant and how it should behave here |
+| `memories/environment.md` | Container facts: OS, hardware, installed tools, what can and cannot be installed, network, session tools and connectors |
