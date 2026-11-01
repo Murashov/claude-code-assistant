@@ -13,7 +13,9 @@ memories in `memories/`. Read only the memories a task needs.
    about them, ongoing projects, how they want things done), save it. Append to
    an existing memory if it fits the topic; otherwise create a new file in
    `memories/` and add one line to the index below. Before changing a memory,
-   read it first. Never store secrets.
+   read it first. Never store secrets. Every memory change is committed and
+   pushed to `origin main` immediately, even if no other task is finished, so
+   nothing is lost when the container restarts.
 
 ## Memory index
 
