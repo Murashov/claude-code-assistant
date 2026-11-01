@@ -1,0 +1,43 @@
+# Project: personal assistant workspace
+
+## What this repo is
+
+A personal assistant workspace. Claude Code runs inside a Docker container on a
+Raspberry Pi with this repository mounted at `/workspace`. The repo is the
+assistant's persistent storage: notes, documents, scripts, memories, and anything
+else the owner asks to be created or kept.
+
+The owner (Art Murashov) interacts with Claude remotely via Remote Control /
+claude.ai. Files created here are committed and pushed to GitHub so they survive
+container restarts and are reachable from anywhere.
+
+## Repository layout
+
+```
+CLAUDE.md      Working rules plus the index of memories
+README.md      Short human-facing description of the repo
+memories/      One Markdown file per topic Claude should remember across sessions
+notes/         Free-form notes, ideas, meeting notes (one Markdown file per topic)
+docs/          Longer documents, drafts, reports
+scripts/       Small utility scripts created on request
+inbox/         Unsorted items to be processed later
+```
+
+Create new top-level folders only when none of the above fits, and document them
+here and in CLAUDE.md.
+
+## Conventions
+
+- File names: lowercase, words separated by hyphens, e.g. `notes/travel-ideas.md`.
+- Date-stamped files use ISO format as a prefix: `2026-11-01-weekly-review.md`.
+- Each Markdown file starts with a `# Title` line.
+- Prefer Markdown for text. Do not add tooling, build systems, or dependencies
+  unless a task actually needs them.
+- Secrets, tokens, and passwords are never committed to this repo.
+
+## Git
+
+- Remote: `origin` = `git@github.com:Murashov/claude-code-assistant.git`
+- Default branch: `main`
+- Commit and push after each completed task so the owner can see results on GitHub.
+- Use clear, descriptive commit messages.
