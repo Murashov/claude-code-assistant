@@ -2,4 +2,5 @@
 *.swp
 .env
 __pycache__/
-repos/
+repos/*
+!repos/manifest.txt

@@ -34,6 +34,14 @@ here and in CLAUDE.md.
   history. Their state lives in their own remotes: commit and push there when
   asked and when access allows. The folder is ephemeral like everything else
   here; re-clone if it is missing after a container restart.
+- `repos/manifest.txt` is the only tracked file under `repos/`. It lists every
+  clone as `name  url  [branch]`. When cloning a new repo, add a line there and
+  commit it. `scripts/repos-sync.sh` clones anything in the manifest that is
+  missing, fetches, and prints branch / dirty / ahead / behind for each clone.
+- Decision (2026-11-02): plain gitignored clones, not submodules or subtrees.
+  Repos have different owners and permissions, and nothing here needs to pin a
+  child version. One SSH key (the one this container already uses) is used for
+  all remotes; the owner does not want per-repo credentials for now.
 
 ## Conventions
 

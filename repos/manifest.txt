@@ -1,0 +1,4 @@
+# Repositories cloned into repos/<name>. One per line: name  url  [branch]
+# Blank lines and lines starting with # are ignored. Only this file is tracked;
+# the clones themselves are gitignored. Run scripts/repos-sync.sh to clone
+# anything missing and show the status of every clone.
