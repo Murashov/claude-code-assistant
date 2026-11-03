@@ -48,3 +48,10 @@ Surveyed 2026-11-01. Re-check if something below stops working.
 - Auto mode is on: a permission classifier blocks commands that read
   credentials or environment secrets. Keep surveys and scripts free of env
   dumps and `~/.ssh` reads.
+
+## Git identity
+
+- Git author identity is lost on container restart. Before committing, run
+  `git config user.name "Art Murashov"` and
+  `git config user.email "artmurashovv@gmail.com"` in /workspace (repo-local),
+  matching the existing commit history.
