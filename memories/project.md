@@ -50,7 +50,12 @@ here and in CLAUDE.md.
 - Each Markdown file starts with a `# Title` line.
 - Prefer Markdown for text. Do not add tooling, build systems, or dependencies
   unless a task actually needs them.
-- Secrets, tokens, and passwords are never committed to this repo.
+- Privacy (stated by Art 2026-11-03): this repository is private and will not
+  be shared with anyone; it is Art's personal second brain. Personal
+  information of any kind (names, thoughts, health, finances, family, plans)
+  may be written here and pushed freely. The only exception is credentials:
+  secrets, tokens, keys and passwords are never committed, because a leaked
+  credential is dangerous regardless of repo visibility.
 
 ## Git
 

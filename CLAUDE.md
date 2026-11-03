@@ -13,7 +13,10 @@ memories in `memories/`. Read only the memories a task needs.
    about them, ongoing projects, how they want things done), save it. Append to
    an existing memory if it fits the topic; otherwise create a new file in
    `memories/` and add one line to the index below. Before changing a memory,
-   read it first. Never store secrets. Every memory change is committed and
+   read it first. This repo is private and is Art's second brain: personal
+   details, names, thoughts, health, finances and plans are all fine to store
+   and push. Only credentials (passwords, tokens, keys) are never stored.
+   Every memory change is committed and
    pushed to `origin main` immediately, even if no other task is finished, so
    nothing is lost when the container restarts.
 
