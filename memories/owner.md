@@ -19,3 +19,12 @@
   Never write to the primary calendar or any other calendar. Reading the
   primary calendar for context (free slots, existing commitments) is fine.
 - Always pass the Managed calendar ID explicitly; the tools default to primary.
+
+## Scheduling preferences (noted 2026-11-03)
+
+- Personal admin tasks (forms, errands, calls) go in the second half of a
+  "Light work" block, i.e. 13:00-14:00 or 17:00-18:00, one hour each, and
+  never two such tasks on the same day.
+- Calls with Art's mother can run long. Do not put anything after such a call
+  on a Monday; prefer a day where an overrun is harmless, and mark the slot
+  busy.
