@@ -373,10 +373,11 @@ below owns the entire loop; nothing inside the container listens or polls.
 
 ### 7.2 Hardware
 
-- **Preferred: a spare Android phone as a satellite** (mic, push-to-talk
-  button and speaker in one device, over Wi-Fi). See section 10. The rest of
-  this step is written for Pi-attached hardware but applies unchanged to the
-  satellite; only the audio source and sink differ.
+- **Preferred: a spare Android phone as a satellite** (mic and speaker,
+  streaming continuously over Wi-Fi; the Pi does wake word, VAD and whisper).
+  See section 10. The rest of this step is written for Pi-attached hardware
+  but applies unchanged to the satellite; only the audio source and sink
+  differ.
 - Pi-attached alternative: a USB microphone or USB conference speakerphone
   (has echo cancellation), a push-to-talk button on GPIO (`gpiozero.Button`),
   and the speaker from step 2. Wake word (openWakeWord with onnxruntime) is a
@@ -503,9 +504,9 @@ pieces are written here as reference and deployed from the laptop.
 
 ## 9. Open questions
 
-1. Satellite client: start with the web page served by the daemon (no app
-   to build, needs a self-signed certificate) or go straight to the native
-   Android app?
+1. Wake word: use a stock openWakeWord model ("hey jarvis", "alexa") or
+   train a custom one (openWakeWord supports training from synthetic
+   samples in a few hours on a laptop)?
 2. Push-to-talk button only for v1, or wake word from the start?
 3. Language: English only (`.en` models, one Piper voice) or Portuguese and
    English (multilingual Whisper model, two Piper voices, language detection)?
@@ -515,94 +516,142 @@ pieces are written here as reference and deployed from the laptop.
    the voice session? (Recommendation: voice session only; the phone already
    shows the text.)
 
-## 10. Addendum (2026-11-03): the phone as a voice satellite
+## 10. Addendum (2026-11-03): the phone as a dumb voice satellite
 
-Decision: a spare Android phone (rooted, but root is not needed) is the
-voice front end instead of Pi-attached hardware. It provides the push-to-talk
-button, the microphone and the speaker. The Pi keeps transcription, Claude
-and synthesis. Bluetooth is not used: Bluetooth audio profiles cannot send a
-phone's own microphone to another device, and application-level Bluetooth
-(RFCOMM) gains nothing over Wi-Fi on the same LAN.
+Decision: a spare entry-level Xiaomi (Redmi class, MediaTek Helio G25/G35 or
+similar, 2-3 GB RAM, rooted) is the voice front end. It is too slow for
+on-device speech recognition, so it does nothing clever: it streams its
+microphone to the Pi continuously and plays back whatever audio the Pi sends.
+The Pi runs voice activity detection, wake word, whisper, Claude and Piper.
+All intelligence lives in the Pi repo; the phone app never changes when
+models are tuned.
 
-### 10.1 Daemon changes
+Bluetooth is not used: Bluetooth audio profiles cannot send a phone's own
+microphone to another device, and application-level Bluetooth (RFCOMM)
+gains nothing over Wi-Fi on the same LAN.
 
-`pi-voice` gains a satellite listener and loses the direct audio code path
-(which stays available as a fallback):
+### 10.1 Pipeline on the Pi
 
-- WebSocket server on the Pi's LAN address, `wss://<pi>:8766/satellite`,
-  bound to the LAN interface only and firewalled to the LAN subnet.
-  WebSocket is chosen over UDP for framing, ordering and because it is
-  trivial in both a browser and Kotlin (OkHttp). TLS with a self-signed
-  certificate, because browsers only allow microphone access from a secure
-  origin.
-- Authentication: a shared token sent as the first message. Same generation
-  and storage rules as the bridge token (section 5.3), separate value.
-- One active utterance at a time, regardless of how many satellites are
-  connected. A second `start` while busy is answered with `{"type":"busy"}`.
-- The daemon's "speak the reply" step sends audio to the satellite that
-  made the request. The bridge `speak` tool and the Stop hook route (step 2)
-  should do the same: if a satellite is connected, play there; otherwise
-  fall back to the local `aplay` path. Implement this as a shared
-  "audio sink" abstraction in the daemon with the bridge calling into it
-  over a local Unix socket, so `speak` has one implementation.
+```
+phone ──PCM 16 kHz──► ring buffer ──► Silero VAD ──► openWakeWord
+                                                        │ detected
+                                                        ▼
+                                   capture until 1 s silence (max 15 s)
+                                                        ▼
+                                                  whisper.cpp
+                                                        ▼
+                                       headless Claude session (7.5)
+                                                        ▼
+                                   Piper ──PCM 22.05 kHz──► phone speaker
+```
+
+- Silero VAD (ONNX, ~1 MB) runs on 30 ms frames and gates openWakeWord so
+  the wake word model only runs on speech. openWakeWord (ONNX, onnxruntime)
+  scores 80 ms frames; both together cost a few percent of one Pi 5 core
+  per stream.
+- Wake word: a stock openWakeWord model to start; a custom one later (the
+  project supports training from synthetic data on a laptop). A short
+  acknowledgement tone is sent to the phone on detection.
+- End of utterance: 1.0 s of VAD silence after speech, hard cap 15 s.
+- While the Pi is speaking, incoming audio is ignored (half duplex). This
+  is the only echo protection needed, and it is enough because the phone's
+  mic and speaker are the same device.
+- The push-to-talk button on the phone bypasses the wake word: `start` and
+  `stop` messages force capture boundaries.
+- Audio is held only in memory. The segment WAV lives in `/run/pi-voice/`
+  (tmpfs) for the duration of the whisper call and is deleted after.
+- The daemon's audio sink abstraction (used by `speak` from step 2 and by
+  the Stop hook route) targets the connected phone and falls back to the
+  local `aplay` path when no satellite is connected.
 
 ### 10.2 Protocol
 
-Text frames are JSON control messages; binary frames are raw PCM.
+One WebSocket per satellite, `wss://<pi>:8766/satellite`, bound to the LAN
+interface only, firewalled to the LAN subnet, TLS with a self-signed
+certificate (pinned in the app). Text frames are JSON; binary frames are raw
+PCM.
 
 Client to server:
 
 | Message | Meaning |
 |---------|---------|
-| `{"type":"auth","token":"..."}` | First message. Connection closed on mismatch. |
-| `{"type":"start","sample_rate":16000,"format":"s16le","channels":1}` | Button pressed. Daemon plays nothing; the phone plays its own chime. |
-| binary | 20 ms PCM chunks (640 bytes at 16 kHz mono s16le) while the button is held. |
-| `{"type":"stop"}` | Button released. Daemon transcribes and runs the Claude turn. |
-| `{"type":"text","text":"..."}` | Alternative to audio: the phone transcribed locally (Android on-device SpeechRecognizer) and sends text only. Skips whisper. |
-| `{"type":"cancel"}` | Abort the current turn or stop playback. |
+| `{"type":"auth","token":"...","name":"redmi"}` | First message. Connection closed on mismatch. |
+| `{"type":"format","sample_rate":16000,"format":"s16le","channels":1}` | Sent once after auth; stream follows. |
+| binary | Continuous 20 ms PCM chunks (640 bytes). Sent for as long as the app runs. |
+| `{"type":"start"}` / `{"type":"stop"}` | Optional push-to-talk override of the wake word. |
+| `{"type":"cancel"}` | Stop current playback or abort the turn. |
 
 Server to client:
 
 | Message | Meaning |
 |---------|---------|
-| `{"type":"state","value":"listening|thinking|speaking|idle"}` | Drives the UI. |
-| `{"type":"transcript","text":"..."}` | What whisper heard, shown on screen. |
-| `{"type":"reply","text":"..."}` | Claude's reply text, shown on screen. |
-| `{"type":"audio_start","sample_rate":22050,"format":"s16le","channels":1}` | Followed by binary PCM chunks from Piper, then `{"type":"audio_end"}`. |
-| `{"type":"error","text":"..."}` | Spoken by the phone with its own TTS or shown. |
-| `{"type":"busy"}` | Another utterance is in progress. |
+| `{"type":"state","value":"idle|listening|thinking|speaking"}` | Drives the UI and the status LED colour. |
+| `{"type":"transcript","text":"..."}` | What whisper heard. |
+| `{"type":"reply","text":"..."}` | Claude's reply text. |
+| `{"type":"audio_start","sample_rate":22050,"format":"s16le","channels":1}` | Followed by binary PCM chunks (Piper output streamed as produced), then `{"type":"audio_end"}`. |
+| `{"type":"tone","name":"wake|error"}` | Short built-in sounds the app plays itself. |
+| `{"type":"error","text":"..."}` | Shown on screen. |
 
-Streaming Piper's raw output as it is produced lets playback start before
-synthesis finishes, which hides most of the synthesis latency.
+Bandwidth is about 256 kbit/s upstream, continuous. Raw PCM is fine on a
+home LAN; Opus (24 kbit/s) is a later option if the phone's 2.4 GHz Wi-Fi
+proves unreliable.
 
-### 10.3 Client, two versions
+### 10.3 The Android app
 
-**v1: a web page served by the daemon.** One HTML file at
-`https://<pi>:8766/`: a full-screen hold-to-talk button, `getUserMedia` at
-16 kHz mono, an AudioWorklet that posts PCM chunks over the WebSocket, and
-Web Audio playback of the returned chunks. Works in Chrome on the phone and
-on the laptop. Add the page to the home screen and accept the self-signed
-certificate once. No app build, no root. Limitations: the screen must stay
-on and the tab in the foreground; Android may suspend the page after a few
-minutes in the background.
+A small native app (Kotlin). It has to be native: a web page cannot keep the
+microphone open in the background.
 
-**v2: a native Android app.** Kotlin, a foreground service holding the
-WebSocket, `AudioRecord` (16 kHz mono) and `AudioTrack` for playback, a
-hold-to-talk button, transcript and reply shown on screen, and optionally a
-hardware button or the volume keys as push-to-talk. Survives screen-off and
-can run for days on a plugged-in phone. Optionally use Android's on-device
-`SpeechRecognizer` and send `text` messages instead of audio. Build this
-once v1 proves the loop and the protocol is stable.
+- Foreground service with `foregroundServiceType="microphone"` and a
+  persistent notification; a partial wake lock and a Wi-Fi lock
+  (`WIFI_MODE_FULL_HIGH_PERF`) so MIUI does not sleep the radio.
+- `AudioRecord`, 16 kHz mono 16-bit, `VOICE_RECOGNITION` source (disables
+  the phone's own AGC and noise suppression, which otherwise mangle quiet
+  speech for whisper). 20 ms reads posted to the WebSocket.
+- `AudioTrack` at 22.05 kHz for playback of the streamed reply.
+- Reconnect loop with exponential backoff (1 s to 30 s). The Pi restarts
+  and Wi-Fi drops; the app must never need a tap to recover.
+- UI: large hold-to-talk button, state colour, last transcript and reply.
+  Keep the screen on only while the app is in front; the service runs
+  without it.
+- Settings: Pi host, token, satellite name. Token stored in app private
+  storage, entered once.
+- No models, no inference, no root required. Target the Android version the
+  phone actually runs (entry-level Xiaomi ships Android 10-13 / MIUI 12-14).
 
-### 10.4 Effect on earlier sections
+### 10.4 MIUI specifics (entry-level Xiaomi)
+
+MIUI is aggressive about killing background apps. All of these are needed
+or the service will silently die within minutes:
+
+- Settings > Apps > the app > Battery saver: **No restrictions**.
+- Settings > Apps > Permissions > **Autostart** enabled for the app.
+- Recent apps: lock the app (pull down on its card, tap the lock).
+- Settings > Battery > disable "Battery saver" and MIUI optimisation if
+  present under Developer options (`Turn on MIUI optimization` off).
+- Developer options: keep "Stay awake while charging" on.
+- Wi-Fi: Advanced settings, "Keep Wi-Fi on during sleep: Always".
+- Phone stays on the charger. Entry-level Xiaomis run cool at this load.
+- With root, `pm set-app-links`/`dumpsys deviceidle whitelist +<package>`
+  adds the app to the Doze allowlist, which removes the last source of
+  radio sleep. Not required if the settings above are applied.
+
+Microphone quality on this class of phone is adequate for near-field speech
+(within roughly two metres in a quiet room). Place the phone where it is
+spoken to, not across the room; whisper on the Pi handles the rest.
+
+### 10.5 Effect on earlier sections
 
 - Step 2 local speaker becomes optional. Piper and the `say` helper remain;
   the output target is chosen at runtime (satellite if connected, else
   local).
-- Step 3 hardware section 7.2 is superseded by this addendum. Recording,
-  whisper, the headless Claude session (7.5), latency (7.6) and the voice
-  security notes (7.7) apply unchanged. Push-to-talk on the phone screen is
-  the trigger; wake word on the phone is a possible later phase.
-- Acceptance for step 3 becomes: hold the button on the phone, ask for the
-  CPU temperature, release; the phone shows the transcript and speaks the
-  answer within 20 s.
+- Step 3 section 7.2 is superseded. Whisper settings (7.3), the headless
+  Claude session (7.5), latency (7.6) and the voice security notes (7.7)
+  apply unchanged. Add roughly 0.5 s for wake word confirmation to the
+  latency budget.
+- The daemon from 7.4 gains the WebSocket listener, the VAD and wake word
+  stages, and the audio sink abstraction; it loses `arecord` and the GPIO
+  button except as a fallback.
+- Acceptance for step 3 becomes: with the app running in the background and
+  the phone screen off, say the wake word and ask for the CPU temperature;
+  the phone plays the wake tone and speaks the answer within 20 s, and the
+  transcript appears on screen when the app is opened.
