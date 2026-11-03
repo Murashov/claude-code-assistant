@@ -373,15 +373,14 @@ below owns the entire loop; nothing inside the container listens or polls.
 
 ### 7.2 Hardware
 
-- Microphone: a USB microphone or a USB conference speakerphone (mic plus
-  speaker in one device, with echo cancellation, which avoids the assistant
-  hearing itself). An I2S mic HAT (for example a ReSpeaker 2-mic) is the
-  alternative if the form factor matters.
-- Trigger: start with a **push-to-talk button** on GPIO (`gpiozero.Button`).
-  It is reliable, has zero false triggers and keeps the privacy story simple.
-  Add a wake word (openWakeWord, runs with onnxruntime on a Pi 5) as a later
-  phase.
-- Speaker: the same output as step 2.
+- **Preferred: a spare Android phone as a satellite** (mic, push-to-talk
+  button and speaker in one device, over Wi-Fi). See section 10. The rest of
+  this step is written for Pi-attached hardware but applies unchanged to the
+  satellite; only the audio source and sink differ.
+- Pi-attached alternative: a USB microphone or USB conference speakerphone
+  (has echo cancellation), a push-to-talk button on GPIO (`gpiozero.Button`),
+  and the speaker from step 2. Wake word (openWakeWord with onnxruntime) is a
+  later phase in either case.
 
 ### 7.3 Speech to text
 
@@ -504,8 +503,9 @@ pieces are written here as reference and deployed from the laptop.
 
 ## 9. Open questions
 
-1. Microphone and speaker hardware: USB speakerphone (simplest, has echo
-   cancellation) or separate mic plus speaker?
+1. Satellite client: start with the web page served by the daemon (no app
+   to build, needs a self-signed certificate) or go straight to the native
+   Android app?
 2. Push-to-talk button only for v1, or wake word from the start?
 3. Language: English only (`.en` models, one Piper voice) or Portuguese and
    English (multilingual Whisper model, two Piper voices, language detection)?
@@ -514,3 +514,95 @@ pieces are written here as reference and deployed from the laptop.
 5. Should the automatic Stop hook speak replies in the phone session, or only
    the voice session? (Recommendation: voice session only; the phone already
    shows the text.)
+
+## 10. Addendum (2026-11-03): the phone as a voice satellite
+
+Decision: a spare Android phone (rooted, but root is not needed) is the
+voice front end instead of Pi-attached hardware. It provides the push-to-talk
+button, the microphone and the speaker. The Pi keeps transcription, Claude
+and synthesis. Bluetooth is not used: Bluetooth audio profiles cannot send a
+phone's own microphone to another device, and application-level Bluetooth
+(RFCOMM) gains nothing over Wi-Fi on the same LAN.
+
+### 10.1 Daemon changes
+
+`pi-voice` gains a satellite listener and loses the direct audio code path
+(which stays available as a fallback):
+
+- WebSocket server on the Pi's LAN address, `wss://<pi>:8766/satellite`,
+  bound to the LAN interface only and firewalled to the LAN subnet.
+  WebSocket is chosen over UDP for framing, ordering and because it is
+  trivial in both a browser and Kotlin (OkHttp). TLS with a self-signed
+  certificate, because browsers only allow microphone access from a secure
+  origin.
+- Authentication: a shared token sent as the first message. Same generation
+  and storage rules as the bridge token (section 5.3), separate value.
+- One active utterance at a time, regardless of how many satellites are
+  connected. A second `start` while busy is answered with `{"type":"busy"}`.
+- The daemon's "speak the reply" step sends audio to the satellite that
+  made the request. The bridge `speak` tool and the Stop hook route (step 2)
+  should do the same: if a satellite is connected, play there; otherwise
+  fall back to the local `aplay` path. Implement this as a shared
+  "audio sink" abstraction in the daemon with the bridge calling into it
+  over a local Unix socket, so `speak` has one implementation.
+
+### 10.2 Protocol
+
+Text frames are JSON control messages; binary frames are raw PCM.
+
+Client to server:
+
+| Message | Meaning |
+|---------|---------|
+| `{"type":"auth","token":"..."}` | First message. Connection closed on mismatch. |
+| `{"type":"start","sample_rate":16000,"format":"s16le","channels":1}` | Button pressed. Daemon plays nothing; the phone plays its own chime. |
+| binary | 20 ms PCM chunks (640 bytes at 16 kHz mono s16le) while the button is held. |
+| `{"type":"stop"}` | Button released. Daemon transcribes and runs the Claude turn. |
+| `{"type":"text","text":"..."}` | Alternative to audio: the phone transcribed locally (Android on-device SpeechRecognizer) and sends text only. Skips whisper. |
+| `{"type":"cancel"}` | Abort the current turn or stop playback. |
+
+Server to client:
+
+| Message | Meaning |
+|---------|---------|
+| `{"type":"state","value":"listening|thinking|speaking|idle"}` | Drives the UI. |
+| `{"type":"transcript","text":"..."}` | What whisper heard, shown on screen. |
+| `{"type":"reply","text":"..."}` | Claude's reply text, shown on screen. |
+| `{"type":"audio_start","sample_rate":22050,"format":"s16le","channels":1}` | Followed by binary PCM chunks from Piper, then `{"type":"audio_end"}`. |
+| `{"type":"error","text":"..."}` | Spoken by the phone with its own TTS or shown. |
+| `{"type":"busy"}` | Another utterance is in progress. |
+
+Streaming Piper's raw output as it is produced lets playback start before
+synthesis finishes, which hides most of the synthesis latency.
+
+### 10.3 Client, two versions
+
+**v1: a web page served by the daemon.** One HTML file at
+`https://<pi>:8766/`: a full-screen hold-to-talk button, `getUserMedia` at
+16 kHz mono, an AudioWorklet that posts PCM chunks over the WebSocket, and
+Web Audio playback of the returned chunks. Works in Chrome on the phone and
+on the laptop. Add the page to the home screen and accept the self-signed
+certificate once. No app build, no root. Limitations: the screen must stay
+on and the tab in the foreground; Android may suspend the page after a few
+minutes in the background.
+
+**v2: a native Android app.** Kotlin, a foreground service holding the
+WebSocket, `AudioRecord` (16 kHz mono) and `AudioTrack` for playback, a
+hold-to-talk button, transcript and reply shown on screen, and optionally a
+hardware button or the volume keys as push-to-talk. Survives screen-off and
+can run for days on a plugged-in phone. Optionally use Android's on-device
+`SpeechRecognizer` and send `text` messages instead of audio. Build this
+once v1 proves the loop and the protocol is stable.
+
+### 10.4 Effect on earlier sections
+
+- Step 2 local speaker becomes optional. Piper and the `say` helper remain;
+  the output target is chosen at runtime (satellite if connected, else
+  local).
+- Step 3 hardware section 7.2 is superseded by this addendum. Recording,
+  whisper, the headless Claude session (7.5), latency (7.6) and the voice
+  security notes (7.7) apply unchanged. Push-to-talk on the phone screen is
+  the trigger; wake word on the phone is a possible later phase.
+- Acceptance for step 3 becomes: hold the button on the phone, ask for the
+  CPU temperature, release; the phone shows the transcript and speaks the
+  answer within 20 s.
