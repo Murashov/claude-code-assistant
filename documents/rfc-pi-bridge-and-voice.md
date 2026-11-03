@@ -93,32 +93,43 @@ Trust directions:
 
 ### 5.2 Network binding and firewall
 
-- Bind only to `172.17.0.1` (the `docker0` address). Never `0.0.0.0`.
-- Defense in depth with nftables, so the port is unreachable even if the
-  bind address is misconfigured later:
+- The Pi runs several Claude Code containers. Only this one (the assistant
+  workspace) may reach the bridge. The default `docker0` bridge is shared by
+  all of them, so the assistant container is moved to its own Docker network
+  and the bridge listens only there. See section 11 for the full isolation
+  design; the short version:
+  - `docker network create --subnet 172.30.0.0/24 claude-bridge`, and run the
+    assistant container with `--network claude-bridge`. The host side of that
+    network is `172.30.0.1` on interface `br-claude` (set with
+    `-o com.docker.network.bridge.name=br-claude`).
+  - Bind only to `172.30.0.1`. Never `0.0.0.0`.
+  - nftables accepts the port only from that interface, so a container on
+    `docker0` or any other network cannot reach it even by addressing the
+    host IP directly:
 
 ```
 table inet pibridge {
   chain input {
-    type filter hook input priority 0;
-    tcp dport 8765 iifname "docker0" accept
+    type filter hook input priority -10;
+    tcp dport 8765 iifname "br-claude" accept
     tcp dport 8765 drop
   }
 }
 ```
 
-- If the container is ever moved to a user-defined Docker network, the
-  gateway IP changes. Keep the bind address in the service's env file, not
-  in code.
+- Keep the bind address in the service's env file, not in code.
 
 ### 5.3 Authentication
 
 - A single static bearer token, generated with `openssl rand -hex 32`.
 - Host side: stored in `/etc/pi-bridge/env` as `PI_BRIDGE_TOKEN=...`,
   mode 0600, owned by `pibridge`.
-- Container side: the same token is passed in the `Authorization` header by
-  Claude Code's MCP client configuration (see 5.6). It is stored in the
-  persistent `.claude` mount, never in a git repository.
+- Container side: the token is injected into **this container only** as an
+  environment variable at `docker run` time (`--env-file
+  /etc/pi-bridge/container.env`, a root-owned 0600 file on the host).
+  Claude Code's MCP configuration references it as `${PI_BRIDGE_TOKEN}` and
+  never contains the value (see 5.6). The other containers are started
+  without that file and have no way to obtain the token.
 - The server rejects any request without a matching header with 401 before
   the MCP layer sees it. A Starlette middleware around the FastMCP ASGI app is
   enough:
@@ -216,16 +227,29 @@ is required or the bind will fail at boot.
 
 ### 5.6 Container-side registration
 
-Run once inside the container (the result is stored under the persistent
-`.claude` mount):
+Claude Code reads project MCP servers from `.mcp.json` in the workspace and
+expands `${VAR}` references from the environment. Commit this file to the
+workspace repo (it holds no secret):
 
-```
-claude mcp add --transport http --scope user pi http://172.17.0.1:8765/mcp \
-  --header "Authorization: Bearer <token>"
+```json
+{
+  "mcpServers": {
+    "pi": {
+      "type": "http",
+      "url": "http://172.30.0.1:8765/mcp",
+      "headers": { "Authorization": "Bearer ${PI_BRIDGE_TOKEN}" }
+    }
+  }
+}
 ```
 
-Then in the Claude Code permissions (user settings, same mount), allow the
-tools so auto mode does not prompt for each call:
+Do not use `claude mcp add --scope user`: that writes `~/.claude.json`,
+which sits outside the persistent `/home/claude/.claude` mount in this
+container and would be lost on restart (verified: the file does not exist
+today, only the `.claude` directory is mounted).
+
+Then in the Claude Code permissions (user settings under the persistent
+mount), allow the tools so auto mode does not prompt for each call:
 
 ```json
 {
@@ -239,8 +263,9 @@ Verify with `claude mcp list` and by asking Claude to call `status`.
 
 ### 5.7 Acceptance criteria
 
-- `curl http://172.17.0.1:8765/mcp` from the container without a token
-  returns 401; from the LAN the port does not answer at all.
+- From the assistant container, a request without a token returns 401 and
+  one with the token lists tools. From any other container and from the LAN
+  the port does not answer at all (connection timeout, not refused).
 - Claude lists the `pi` server as connected and `status` returns host data.
 - Service restarts cleanly after `sudo reboot`.
 
@@ -567,8 +592,10 @@ phone ──PCM 16 kHz──► ring buffer ──► Silero VAD ──► openW
 ### 10.2 Protocol
 
 One WebSocket per satellite, `wss://<pi>:8766/satellite`, bound to the LAN
-interface only, firewalled to the LAN subnet, TLS with a self-signed
-certificate (pinned in the app). Text frames are JSON; binary frames are raw
+interface only, TLS with a self-signed certificate (pinned in the app).
+nftables accepts 8766 only from the LAN interface (`wlan0`/`eth0`) and drops
+it from every Docker bridge, so no container can pose as a satellite or
+listen to the microphone stream (section 11). Text frames are JSON; binary frames are raw
 PCM.
 
 Client to server:
@@ -655,3 +682,100 @@ spoken to, not across the room; whisper on the Pi handles the rest.
   the phone screen off, say the wake word and ask for the CPU temperature;
   the phone plays the wake tone and speaks the answer within 20 s, and the
   transcript appears on screen when the app is opened.
+
+## 11. Addendum (2026-11-03): only the assistant container may talk to the Pi
+
+Requirement: the Pi runs three or four other Claude Code containers. None of
+them may reach the bridge, the voice daemon, or the phone's audio stream.
+Only the assistant container (the one with this workspace mounted) is
+trusted to call Pi tools, and the credential that proves it must exist only
+inside that container.
+
+### 11.1 Threat model
+
+- Another container is compromised or simply misbehaves and tries to call
+  `speak`, read sensors, or connect to the satellite socket.
+- Another container tries to sniff the token from a shared location.
+- The assistant container is restarted or rebuilt; nothing should need to
+  be re-entered by hand, and nothing should leak into a git repository.
+
+### 11.2 Layer 1: network placement
+
+- The assistant container runs on a dedicated user-defined network
+  `claude-bridge` (172.30.0.0/24, host side `172.30.0.1`, bridge interface
+  named `br-claude`). The other containers stay on `docker0` or on their own
+  networks. Docker's default inter-network isolation stops container-to-
+  container traffic across bridges.
+- The bridge binds to `172.30.0.1` only. The satellite socket binds to the
+  LAN address only.
+- nftables (priority -10, so it runs before Docker's own rules) enforces the
+  interface a packet arrived on. Binding alone is not enough: a container on
+  `docker0` can address `172.30.0.1` because it is a host address, and only
+  the `iifname` rule stops it.
+
+```
+table inet pibridge {
+  chain input {
+    type filter hook input priority -10;
+    # bridge: only from the assistant container's network
+    tcp dport 8765 iifname "br-claude" accept
+    tcp dport 8765 drop
+    # satellite socket: only from the LAN, never from any container
+    tcp dport 8766 iifname { "wlan0", "eth0" } accept
+    tcp dport 8766 drop
+  }
+}
+```
+
+- Optional: give the assistant container a fixed address
+  (`--ip 172.30.0.10`) and add `ip saddr 172.30.0.10` to the accept rule.
+  This only matters if a second container is ever attached to
+  `claude-bridge`; keep the network single-tenant instead.
+
+### 11.3 Layer 2: a credential that lives only in this container
+
+- Token generated once on the host: `openssl rand -hex 32`.
+- Host copy: `/etc/pi-bridge/env` (read by the bridge service).
+- Container copy: `/etc/pi-bridge/container.env` containing
+  `PI_BRIDGE_TOKEN=<token>`, root-owned, mode 0600, passed with
+  `--env-file` only in the assistant container's `docker run` (or compose
+  service). It is never written into `/workspace`, never into the shared
+  `.claude` mount, and the other containers are started without it.
+- Claude Code reads the MCP server definition from the committed
+  `/workspace/.mcp.json`, which contains `${PI_BRIDGE_TOKEN}` and expands it
+  at startup. The Stop hook script (6.4) reads the same variable instead of
+  a token file.
+- The auto-mode permission classifier already blocks Claude from dumping
+  environment variables, so the token is not casually visible in the
+  session either; it is used by the MCP client process, not by the model.
+- Rotation: change the value in both files, restart the bridge, restart the
+  container.
+
+### 11.4 Why not other mechanisms
+
+- Mutual TLS: stronger in theory, but Claude Code's MCP client configuration
+  carries headers, not client certificates, so it would need a local proxy
+  inside the container. Not worth it on a single-host LAN.
+- A Unix socket bind-mounted only into this container: equivalent isolation,
+  but it needs a stdio shim inside the container because the MCP client
+  speaks HTTP. Keep as a fallback if Docker networking ever gets in the way.
+- Source IP filtering alone: container addresses on `docker0` are dynamic,
+  so the dedicated network is required anyway.
+
+### 11.5 Direction host to container
+
+The voice daemon reaches Claude with `docker exec <assistant-container>`
+(section 7.5). It names this container explicitly; nothing in that path
+touches the other containers. The daemon user needs the `docker` group on
+the host, which is root-equivalent there; that is accepted because the host
+is the trusted side.
+
+### 11.6 Acceptance criteria
+
+- From the assistant container: MCP tools listed and callable.
+- From another container: a request to `172.30.0.1:8765` times out.
+- From a laptop on the LAN: `8765` times out; `8766` completes a TLS
+  handshake and the satellite protocol works.
+- `docker inspect` of the other containers shows no `PI_BRIDGE_TOKEN`.
+- After `docker restart` of the assistant container, the `pi` server is
+  listed without any manual step.
