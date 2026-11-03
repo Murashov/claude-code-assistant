@@ -19,6 +19,8 @@ README.md      Short human-facing description of the repo
 memories/      One Markdown file per topic Claude should remember across sessions
 notes/         Free-form notes, ideas, meeting notes (one Markdown file per topic)
 docs/          Longer documents, drafts, reports
+documents/     Specs and RFCs written here but consumed elsewhere (e.g. by the
+               Pi development repo on Art's laptop)
 scripts/       Small utility scripts created on request
 inbox/         Unsorted items to be processed later
 repos/         Other git repositories cloned on request (gitignored, see below)
@@ -26,6 +28,12 @@ repos/         Other git repositories cloned on request (gitignored, see below)
 
 Create new top-level folders only when none of the above fits, and document them
 here and in CLAUDE.md.
+
+## Pending designs
+
+- `documents/rfc-pi-bridge-and-voice.md` (2026-11-03): RFC for a host-side MCP
+  bridge, Piper TTS and a voice-input daemon. Not implemented. Art will say
+  when it is; only then record how to use it (in `environment.md`).
 
 ## Cloned repositories (set 2026-11-01)
 
