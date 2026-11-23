@@ -33,6 +33,8 @@ Task owner labels:
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
 | [Driver's license in Brazil](drivers-license.md) | Documents and admin | idea |
 | [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
+| [Investments: crypto and stocks](investments.md) | Money > Passive income | active |
 | [Ktool (startup job)](ktool.md) | Money > Employment | active |
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
+| [Trading bot](trading-bot.md) | Money > Passive income | paused |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
