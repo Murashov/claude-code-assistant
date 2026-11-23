@@ -25,6 +25,10 @@ Task owner labels:
 - `[claude]` Claude can do it alone (research, drafting, scheduling)
 - `[claude?]` Claude can do it after Art answers a question
 
+## Loose tasks
+
+[backlog.md](backlog.md) holds tasks that belong to no project.
+
 ## Projects
 
 | Project | Area | Status |
