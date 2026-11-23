@@ -35,8 +35,11 @@ Task owner labels:
 | [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
 | [Family](family.md) | Family | ongoing |
 | [Friends: regular check-ins](friends-check-ins.md) | Friends | ongoing |
+| [Hacking and pen testing](hacking.md) | Hobby | paused |
+| [Hiking and wildlife photography](hiking-photography.md) | Hobby | paused |
 | [Investments: crypto and stocks](investments.md) | Money > Passive income | active |
 | [Ktool (startup job)](ktool.md) | Money > Employment | active |
+| [Lion's mane mushroom growing](lions-mane.md) | Hobby | active |
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
 | [Trading bot](trading-bot.md) | Money > Passive income | paused |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
