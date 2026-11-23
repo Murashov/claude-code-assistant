@@ -39,6 +39,7 @@ Task owner labels:
 | [Hiking](hiking.md) | Hobby | paused |
 | [Investments: crypto and stocks](investments.md) | Money > Passive income | active |
 | [Ktool (startup job)](ktool.md) | Money > Employment | active |
+| [Nutrition: healthy diet](nutrition.md) | Health > Nutrition | not started |
 | [Lion's mane mushroom growing](lions-mane.md) | Hobby | active |
 | [Wildlife photography](photography.md) | Hobby | paused |
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
