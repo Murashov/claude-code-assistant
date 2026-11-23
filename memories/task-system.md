@@ -14,3 +14,10 @@
   tracked that they were missed.
 - Art is describing projects one at a time. Collect them all before building
   the board and routines.
+
+## Current phase: backlog intake (set 2026-11-23)
+
+- Art is only filling the backlog right now. Record projects and tasks as he
+  describes them. Do not research, propose solutions, ask follow-up
+  questions, or schedule anything until he says the intake is over.
+  **Why:** he wants the full picture first and will come back to solving.
