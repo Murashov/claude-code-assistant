@@ -1,0 +1,240 @@
+<title>Art's Life Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: summary of what needs Art first, then a left-to-right mind map (root, areas, projects), then loose tasks. */
+:root{
+  --bg:#EEF1EF; --surface:#FFFFFF; --ink:#16201B; --muted:#5A6660; --line:#C9D1CC;
+  --accent:#2C6A58; --accent-soft:#DCEBE5; --claude:#33619E; --claude-soft:#DFE8F4;
+  --urgent:#A9402C; --urgent-soft:#F5E1DB; --idle:#8A948F; --idle-soft:#E6EAE8;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111614; --surface:#1A211E; --ink:#E4EAE7; --muted:#9AA6A0; --line:#33403A;
+    --accent:#72C2A9; --accent-soft:#1F3A31; --claude:#8DB2E6; --claude-soft:#1E2D42;
+    --urgent:#E8876F; --urgent-soft:#3D231C; --idle:#7F8A85; --idle-soft:#252D29;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111614; --surface:#1A211E; --ink:#E4EAE7; --muted:#9AA6A0; --line:#33403A;
+  --accent:#72C2A9; --accent-soft:#1F3A31; --claude:#8DB2E6; --claude-soft:#1E2D42;
+  --urgent:#E8876F; --urgent-soft:#3D231C; --idle:#7F8A85; --idle-soft:#252D29;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 56px}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;font-weight:700}
+h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.01em}
+h2{font-size:22px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:6px}
+header p{margin:0;color:var(--muted);max-width:62ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted);margin-top:6px}
+.tag{font-family:var(--mono);font-size:11px;padding:1px 6px;border-radius:4px;white-space:nowrap}
+.tag.art{background:var(--accent-soft);color:var(--accent)}
+.tag.claude{background:var(--claude-soft);color:var(--claude)}
+.tag.both{background:var(--claude-soft);color:var(--claude);border:1px dashed var(--claude)}
+
+/* Needs you */
+.lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.lane{background:var(--surface);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--line)}
+.lane.hot{border-top-color:var(--urgent)}
+.lane.soon{border-top-color:var(--accent)}
+.lane h3{font-size:16px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.lane h3 span{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--muted)}
+.lane ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lane li{display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+.lane li .t{font-weight:500}
+.lane li .d{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.lane li .p{grid-column:1/-1;font-size:12px;color:var(--muted)}
+.lane li.flag .t::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--urgent);margin-right:7px;vertical-align:2px}
+
+/* Mind map */
+.map{position:relative;display:flex;gap:0}
+.root{flex:0 0 auto;align-self:center;font-family:var(--display);font-weight:700;font-size:20px;
+  background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:999px;position:relative;z-index:1}
+.branches{flex:1;display:flex;flex-direction:column;gap:14px;border-left:2px solid var(--line);margin-left:22px;padding-block:6px}
+.area{display:grid;grid-template-columns:170px 1fr;align-items:start;position:relative}
+.area::before{content:"";position:absolute;left:0;top:19px;width:22px;border-top:2px solid var(--line)}
+.area-node{margin-left:22px;margin-top:6px;font-family:var(--display);font-weight:700;font-size:15px;
+  padding:5px 12px;border:2px solid var(--ink);border-radius:999px;justify-self:start;background:var(--bg);white-space:nowrap}
+.projects{display:flex;flex-wrap:wrap;gap:8px;padding-left:14px;border-left:2px dotted var(--line);margin-left:8px}
+.sub{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;width:100%;margin-top:4px}
+.sub:first-child{margin-top:0}
+details.proj{background:var(--surface);border-radius:8px;border:1px solid var(--line);min-width:0;max-width:100%}
+details.proj[open]{flex-basis:100%}
+details.proj summary{list-style:none;cursor:pointer;padding:7px 11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.proj summary::-webkit-details-marker{display:none}
+details.proj summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.pname{font-weight:600}
+.status{font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px}
+.s-active{background:var(--accent-soft);color:var(--accent)}
+.s-ongoing{background:var(--claude-soft);color:var(--claude)}
+.s-paused,.s-idea{background:var(--idle-soft);color:var(--idle)}
+.s-decide{background:var(--urgent-soft);color:var(--urgent)}
+.count{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.body{padding:2px 12px 12px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
+.body p{margin:8px 0 0;color:var(--muted);max-width:70ch;font-size:14px}
+.body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.body li{display:flex;gap:8px;align-items:baseline;font-size:14px}
+.body .none{color:var(--muted);font-size:14px}
+.file{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* Backlog */
+.backlog{background:var(--surface);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.backlog ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.backlog li{display:flex;gap:8px;align-items:baseline}
+footer{color:var(--muted);font-size:13px}
+
+@media (max-width:640px){
+  .map{flex-direction:column;align-items:flex-start}
+  .branches{margin-left:18px;border-left-width:2px}
+  .area{grid-template-columns:1fr;gap:8px}
+  .projects{margin-left:22px}
+}
+@media (prefers-reduced-motion:no-preference){ details.proj{transition:border-color .15s} details.proj:hover{border-color:var(--accent)} }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Seeded 23 Nov 2026 · regenerated from the projects folder</span>
+    <h1>Art's Life Map</h1>
+    <p>Everything currently on your mind, by area. Tap a project to see its tasks. Changes happen in chat: tell Claude, and this page is republished.</p>
+    <div class="legend">
+      <span><span class="tag art">you</span> only you can do it</span>
+      <span><span class="tag claude">claude</span> Claude can do it alone</span>
+      <span><span class="tag both">with claude</span> Claude after you answer</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="needs">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h2 id="needs">Dated and urgent</h2>
+      <div class="lanes" id="lanes"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="maph" style="display:flex;flex-direction:column;gap:14px">
+    <h2 id="maph">Map</h2>
+    <div style="overflow-x:auto">
+      <div class="map"><div class="root">Art</div><div class="branches" id="branches"></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="bl" class="backlog">
+    <h2 id="bl">Loose tasks</h2>
+    <ul id="backlog"></ul>
+  </section>
+
+  <footer>Source: projects folder in the assistant workspace repo. Nothing here is scheduled yet; planning comes later.</footer>
+</div>
+
+<script>
+const LANES = [
+  {cls:"hot", title:"This week", range:"23–29 Nov", items:[
+    {t:"Transfer lion's mane to fresh agar", d:"by 29 Nov", p:"Hobby · culture has filled the plate"},
+    {t:"Help Dad get a crypto card", d:"no date", p:"Loose task · marked important", flag:true},
+    {t:"Remind the investor about your share", d:"before next round", p:"Ktool · register share before the round"}
+  ]},
+  {cls:"soon", title:"Before year end", range:"Dec 2026", items:[
+    {t:"Ktool survival decision", d:"~early Dec", p:"Continue, or unpaid leave and job search"},
+    {t:"Decide on a Portuguese teacher", d:"~23 Dec", p:"Portuguese learning"},
+    {t:"Pay overdue carnê-leão, you and Sveta", d:"by 31 Dec", p:"Taxes in Brazil · Dubai apartment, late fees"},
+    {t:"File the final Russian tax return", d:"overdue", p:"Russian taxes · with help from your mother", flag:true}
+  ]},
+  {cls:"", title:"Early 2027", range:"Feb–Apr 2027", items:[
+    {t:"Celpe-Bras 2027/1 registration", d:"~late Feb", p:"Citizenship · short window, exam ~late Apr"}
+  ]}
+];
+
+const AREAS = [
+ {area:"Emigration", groups:[{sub:"", projects:[
+  {n:"Brazilian citizenship", s:"active", f:"brazil-citizenship.md", c:"Naturalization through residency based on Mia. Blockers: Celpe-Bras and criminal record certificates from Russia and Dubai.", tasks:[
+    ["art","Decide: target Celpe-Bras 2027/1 or later"],["art","Decide what exam level is enough"],
+    ["claude","Find test centres in Curitiba; check other accepted proofs"],["claude","Watch for the 2027/1 announcement, put registration on the calendar"],
+    ["both","Plan exam preparation"],["claude","Research certificate rules: validity, apostille, sworn translation"],
+    ["art","Russian criminal record certificate"],["art","Dubai police clearance certificate"],
+    ["claude","Find sworn translators"],["art","Brazilian federal and state certificates"],
+    ["claude","Build the full filing checklist"],["art","File the application"]]},
+  {n:"Portuguese learning", s:"active", f:"portuguese.md", c:"Up the game for the exam: speaking, comprehensible input, maybe a teacher.", tasks:[
+    ["art","Start speaking practice with an AI assistant"],["art","Start comprehensible input"],["art","Decide on a human teacher by ~23 Dec"]]}
+ ]}]},
+ {area:"Money", groups:[
+  {sub:"Taxes", projects:[
+   {n:"Taxes in Brazil", s:"active", f:"brazil-taxes.md", c:"Overdue carnê-leão on the Dubai apartment for last year, for you and Sveta. Late fees. Target: before end of 2026.", tasks:[
+     ["art","Report and pay your carnê-leão with late fees"],["art","Same for Sveta's half"]]},
+   {n:"Russian taxes", s:"active", f:"russian-taxes.md", c:"Business closed, dues paid, final return not filed. Can be filed online by someone in Russia.", tasks:[
+     ["art","File the final return with help from your mother"]]}]},
+  {sub:"Employment", projects:[
+   {n:"Ktool", s:"active", f:"ktool.md", c:"Back end and some product work; now on the AI report integration. Waiting for the next round; survival decision in about two weeks.", tasks:[
+     ["art","Remind the investor about your share"],["art","Look into non-deterministic design"],["art","Survival decision ~early Dec"]]}]},
+  {sub:"Business", projects:[
+   {n:"Nashi Global", s:"decide", f:"nashi-global.md", c:"Still running, server costs money, partner left, belief faded. Thinking about closing.", tasks:[
+     ["art","Sit down and decide its future"]]}]},
+  {sub:"Passive income", projects:[
+   {n:"Dubai apartment", s:"ongoing", f:"dubai-apartment.md", c:"Managed by GuestReady, long-term tenant. Watch for outstanding payments.", tasks:[
+     ["art","Monthly: DEWA electricity and water"],["art","Monthly: internet, if the tenant has not paid"],["art","Every few months: service charges"],["art","Usually monthly: AC receipts"]]},
+   {n:"Investments", s:"active", f:"investments.md", c:"No stocks now; a lot in crypto.", tasks:[["art","Secure the crypto funds"]]},
+   {n:"Trading bot", s:"paused", f:"trading-bot.md", c:"On pause; small income before.", tasks:[["art","Adjust and restart, or leave it stopped"]]}]}
+ ]},
+ {area:"Health", groups:[
+  {sub:"Sport", projects:[{n:"Sport", s:"ongoing", f:"sport.md", c:"Climbing Wed and Sun, sometimes with Sveta. Stretching at home. Running paused.", tasks:[
+    ["art","Climb outdoors with Matthias"],["art","Get back to running"]]}]},
+  {sub:"Nutrition", projects:[{n:"Healthy diet", s:"idea", f:"nutrition.md", c:"Structure the diet and a shopping list, together later.", tasks:[["both","Structure the diet and shopping list"]]}]},
+  {sub:"Checkups", projects:[{n:"Blood work", s:"active", f:"health-checkups.md", c:"Lipid profile, hormones, vitamins, minerals.", tasks:[
+    ["art","Check insurance coverage"],["art","Do the blood work"]]}]},
+  {sub:"Mental health", projects:[{n:"Mental health", s:"ongoing", f:"mental-health.md", c:"Daily habits.", tasks:[
+    ["art","Meditate every evening"],["art","Keep the house clean"],["art","Limit screen time and scrolling"]]}]}
+ ]},
+ {area:"Family", groups:[{sub:"", projects:[
+  {n:"Family", s:"ongoing", f:"family.md", c:"Sveta, Mia, mother, father, sister. Mia's two nannies are managed by Sveta.", tasks:[]}]}]},
+ {area:"Friends", groups:[{sub:"", projects:[
+  {n:"Check-ins", s:"ongoing", f:"friends-check-ins.md", c:"Andrei and Sasha on 22 Nov, Egor recently. Pogos long ago, Danya not recently.", tasks:[
+    ["art","Check in with Pogos and discuss selling the PC"],["art","Write to Danya"]]}]}]},
+ {area:"Hobby", groups:[{sub:"", projects:[
+  {n:"Lion's mane", s:"active", f:"lions-mane.md", c:"Growing on agar; plate is full.", tasks:[["art","Transfer to fresh agar by 29 Nov"]]},
+  {n:"Pen testing pipeline", s:"active", f:"pentest-pipeline.md", c:"Triage mechanism built.", tasks:[["art","Fix triage when automatic APK pulling is unavailable"]]},
+  {n:"Hacking", s:"paused", f:"hacking.md", c:"Season's easy and medium boxes done.", tasks:[]},
+  {n:"Hiking", s:"paused", f:"hiking.md", c:"Hiking group in Curitiba, someday.", tasks:[]},
+  {n:"Wildlife photography", s:"paused", f:"photography.md", c:"Camera ready, no time.", tasks:[]}]}]},
+ {area:"Documents", groups:[{sub:"", projects:[
+  {n:"Driver's license", s:"idea", f:"drivers-license.md", c:"Questionable if the family leaves Brazil soon. Remind Art.", tasks:[["art","Decide whether to get it in Brazil"]]}]}]},
+ {area:"Assistant", groups:[{sub:"", projects:[
+  {n:"Proactive assistant", s:"idea", f:"proactive-assistant.md", c:"Scheduled reminders and check-ins. Needs thinking. Pi voice RFC is related.", tasks:[
+    ["art","Think through how it should work"],["art","Implement the Pi bridge and voice RFC, later"]]}]}]}
+];
+
+const BACKLOG = [
+  ["art","Help Dad get a crypto card like yours (important)"],
+  ["art","Vaccine appointment: Sveta is working on it"],
+  ["art","Make duplicates of the keys"]
+];
+
+const LABEL = {active:"active", ongoing:"ongoing", paused:"paused", idea:"idea", decide:"decide"};
+const OWNER = {art:["art","you"], claude:["claude","claude"], both:["both","with claude"]};
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tag = o => `<span class="tag ${OWNER[o][0]}">${OWNER[o][1]}</span>`;
+
+document.getElementById("lanes").innerHTML = LANES.map(l => `
+  <div class="lane ${l.cls}"><h3>${esc(l.title)} <span>${esc(l.range)}</span></h3>
+  <ul>${l.items.map(i => `<li class="${i.flag?"flag":""}"><span class="t">${esc(i.t)}</span><span class="d">${esc(i.d)}</span><span class="p">${esc(i.p)}</span></li>`).join("")}</ul></div>`).join("");
+
+document.getElementById("branches").innerHTML = AREAS.map(a => `
+  <div class="area"><div class="area-node">${esc(a.area)}</div><div class="projects">
+  ${a.groups.map(g => `${g.sub?`<div class="sub">${esc(g.sub)}</div>`:""}${g.projects.map(p => `
+    <details class="proj"><summary><span class="pname">${esc(p.n)}</span><span class="status s-${p.s}">${LABEL[p.s]}</span>${p.tasks.length?`<span class="count">${p.tasks.length} task${p.tasks.length>1?"s":""}</span>`:""}</summary>
+    <div class="body"><p>${esc(p.c)}</p>
+    ${p.tasks.length?`<ul>${p.tasks.map(t => `<li>${tag(t[0])}<span>${esc(t[1])}</span></li>`).join("")}</ul>`:`<span class="none">No tasks right now.</span>`}
+    <span class="file">projects/${esc(p.f)}</span></div></details>`).join("")}`).join("")}
+  </div></div>`).join("");
+
+document.getElementById("backlog").innerHTML = BACKLOG.map(t => `<li>${tag(t[0])}<span>${esc(t[1])}</span></li>`).join("");
+</script>

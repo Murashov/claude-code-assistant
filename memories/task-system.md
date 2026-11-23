@@ -6,8 +6,13 @@
   labels ([art] / [claude] / [claude?]), open questions and a log.
 - Google Calendar (Managed) is only the output: scheduled work lands there.
 - Art keeps a Miro mind map for himself; Claude does not use it.
-- Planned, not built yet: a pinned claude.ai artifact board generated from the
-  project files (republished on every change), a backlog file for loose tasks,
+- Board (built 2026-11-23): `board/index.html`, published as a private
+  claude.ai artifact at https://claude.ai/artifact/YCdJpnxrrkR1d7TZeST4r7 .
+  Its data is hand-copied from the project files into the JS arrays at the
+  bottom. After any project change, update those arrays and republish the
+  same file path (or pass that URL from another conversation).
+- Loose tasks live in `projects/backlog.md`.
+- Planned, not built yet:
   weekly plan files recording done / missed / moved, and a daily check-in plus
   weekly planning via scheduled routines with push notifications.
   **Why:** plans were put on the calendar while Art was sick and nothing

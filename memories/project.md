@@ -21,6 +21,7 @@ notes/         Free-form notes, ideas, meeting notes (one Markdown file per topi
 docs/          Longer documents, drafts, reports
 projects/      Task system: areas.md (buckets), one file per project with
                context and tasks (see memories/task-system.md)
+board/         index.html: the life-map board, published as a claude.ai artifact
 documents/     Specs and RFCs written here but consumed elsewhere (e.g. by the
                Pi development repo on Art's laptop)
 scripts/       Small utility scripts created on request
