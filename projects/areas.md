@@ -11,6 +11,7 @@ Top-level buckets every project and task belongs to. Taken from Art's mind map
 | Emigration | |
 | Friends | |
 | Hobby | |
+| Documents and admin | Added 2026-11-23 for personal paperwork such as the driver's license |
 
 ## Project files
 
@@ -30,6 +31,7 @@ Task owner labels:
 |---------|------|--------|
 | [Brazilian citizenship](brazil-citizenship.md) | Emigration | active |
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
+| [Driver's license in Brazil](drivers-license.md) | Documents and admin | idea |
 | [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |

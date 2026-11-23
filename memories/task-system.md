@@ -21,3 +21,5 @@
   describes them. Do not research, propose solutions, ask follow-up
   questions, or schedule anything until he says the intake is over.
   **Why:** he wants the full picture first and will come back to solving.
+- Art asked to be reminded about the driver's license project
+  (projects/drivers-license.md). Include it in check-ins once they exist.
