@@ -30,4 +30,5 @@ Task owner labels:
 |---------|------|--------|
 | [Brazilian citizenship](brazil-citizenship.md) | Emigration | active |
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
+| [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
