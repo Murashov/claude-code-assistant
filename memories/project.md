@@ -72,9 +72,7 @@ here and in CLAUDE.md.
 - Remote: `origin` = `git@github.com:Murashov/claude-code-assistant.git`
 - Default branch: `main`
 - Commit and push after each completed task so the owner can see results on GitHub.
-- Temporary (2026-11-23): pushes containing personal data are blocked by the
-  auto-mode classifier even with Art's approval. Until Art adds a
-  `Bash(git push:*)` allow rule, commit locally only and do not attempt to
-  push. Art pushes himself with `! git -C /workspace push origin main`.
-  Remove this note once the rule exists.
+- Pushes with personal data are allowed by a `Bash(git push:*)` rule in
+  `/home/claude/.claude/settings.json` (added 2026-11-23). Without it the
+  auto-mode classifier blocks them even with Art's approval in chat.
 - Use clear, descriptive commit messages.
