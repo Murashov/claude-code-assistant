@@ -3,7 +3,7 @@
 - Name: Art Murashov.
 - Family: wife Sveta, daughter Mia, mother, father, sister (details in
   projects/family.md). Mia has two nannies, managed mostly by Sveta.
-- Lives in Brazil. Has a daughter born in Brazil around January 2026 and
+- Lives in Curitiba, Brazil. Has a daughter born in Brazil around January 2026 and
   holds Brazilian residency on that basis. Previously lived in Russia and
   Dubai (UAE). Married; Art and his wife each own half of an apartment in
   Dubai. The family may leave Brazil soon (undecided, mentioned 2026-11-23).

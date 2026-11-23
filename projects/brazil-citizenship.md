@@ -10,7 +10,7 @@ Get Brazilian citizenship (naturalization) and then a Brazilian passport.
 
 ## Context
 
-- Art lives in Brazil. His daughter was born in Brazil around January 2026,
+- Art lives in Curitiba, Brazil. His daughter was born in Brazil around January 2026,
   and Art holds residency on that basis.
 - The route is ordinary naturalization. Having a Brazilian child is expected
   to reduce the required residence period (to verify: Migration Law
@@ -71,11 +71,10 @@ time them close to filing.
 
 ## Open questions for Art
 
-1. Which city do you live in? Needed for test centres and Polícia Federal.
-2. Is 2027/1 the target for Celpe-Bras? How confident is your Portuguese today?
-3. When exactly did you get residency? The residence clock starts there.
-4. Did you live in any other country for a year or more besides Russia and the UAE?
-5. Do you have someone in Russia who can request and apostille the
+1. Is 2027/1 the target for Celpe-Bras? How confident is your Portuguese today?
+2. When exactly did you get residency? The residence clock starts there.
+3. Did you live in any other country for a year or more besides Russia and the UAE?
+4. Do you have someone in Russia who can request and apostille the
    certificate for you?
 
 ## Log
