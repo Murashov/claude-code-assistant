@@ -1,6 +1,9 @@
 # Owner: facts about Art
 
 - Name: Art Murashov.
+- Lives in Brazil. Has a daughter born in Brazil around January 2026 and
+  holds Brazilian residency on that basis. Previously lived in Russia and
+  Dubai (UAE). Working on Brazilian citizenship (projects/brazil-citizenship.md).
 - Time zone: America/Sao_Paulo (UTC-3). The container clock is UTC, so convert
   when talking about times.
 - Primary Google Calendar uses recurring weekday time blocks (deep work, light

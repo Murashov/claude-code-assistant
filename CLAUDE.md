@@ -29,3 +29,4 @@ memories in `memories/`. Read only the memories a task needs.
 | `memories/owner.md` | Facts about Art: time zone (Sao Paulo), calendar structure, works from phone, Managed calendar ID and the write-only-to-Managed rule |
 | `memories/project.md` (Cloned repositories section) | `repos/` holds other repos cloned on request, gitignored, pushed to their own remotes; `repos/manifest.txt` lists them and `scripts/repos-sync.sh` restores them |
 | `memories/environment.md` | Container facts: OS, hardware, installed tools, what can and cannot be installed, network, session tools and connectors |
+| `memories/task-system.md` | How projects and tasks are tracked in `projects/`, owner labels, planned board and check-ins |

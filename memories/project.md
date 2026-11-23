@@ -19,6 +19,8 @@ README.md      Short human-facing description of the repo
 memories/      One Markdown file per topic Claude should remember across sessions
 notes/         Free-form notes, ideas, meeting notes (one Markdown file per topic)
 docs/          Longer documents, drafts, reports
+projects/      Task system: areas.md (buckets), one file per project with
+               context and tasks (see memories/task-system.md)
 documents/     Specs and RFCs written here but consumed elsewhere (e.g. by the
                Pi development repo on Art's laptop)
 scripts/       Small utility scripts created on request
