@@ -30,8 +30,10 @@ time whether the company survives the next funding round.
 
 ## Tasks
 
-- [ ] [art] Remind the investor about the share discussion; register the
-      share before the next round (scheduled Mon 2026-11-23 08:00)
+- [x] [art] Remind the investor about the share discussion (done
+      2026-11-23)
+- [ ] [art] Register the share before the next round (waiting for the
+      investor's reply)
 - [ ] [art] Look into non-deterministic design for the AI report integration
 - [ ] [art] Survival decision around early December: continue, or unpaid
       leave and job search
@@ -39,3 +41,4 @@ time whether the company survives the next funding round.
 ## Log
 
 - 2026-11-23: Recorded during backlog intake.
+- 2026-11-23: Art wrote to the investor about the share. Waiting for reply.
