@@ -15,11 +15,11 @@
 - Art is describing projects one at a time. Collect them all before building
   the board and routines.
 
-## Current phase: backlog intake (set 2026-11-23)
+## Backlog intake (2026-11-23): seeding done
 
-- Art is only filling the backlog right now. Record projects and tasks as he
-  describes them. Do not research, propose solutions, ask follow-up
-  questions, or schedule anything until he says the intake is over.
+- Art seeded all projects on 2026-11-23 and said that is everything for now.
+  When he adds items, record them as described. Do not research, propose
+  solutions, or schedule anything unless he asks.
   **Why:** he wants the full picture first and will come back to solving.
 - Art asked to be reminded about the driver's license project
   (projects/drivers-license.md). Include it in check-ins once they exist.

@@ -11,6 +11,7 @@ Top-level buckets every project and task belongs to. Taken from Art's mind map
 | Emigration | |
 | Friends | |
 | Hobby | |
+| Assistant | Added 2026-11-23 for work on this assistant itself |
 | Documents and admin | Added 2026-11-23 for personal paperwork such as the driver's license |
 
 ## Project files
@@ -53,4 +54,5 @@ Task owner labels:
 | [Sport](sport.md) | Health > Sport | ongoing |
 | [Trading bot](trading-bot.md) | Money > Passive income | paused |
 | [Portuguese learning](portuguese.md) | Emigration | active |
+| [Proactive assistant](proactive-assistant.md) | Assistant | idea |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
