@@ -47,6 +47,7 @@ Task owner labels:
 | [Nutrition: healthy diet](nutrition.md) | Health > Nutrition | not started |
 | [Lion's mane mushroom growing](lions-mane.md) | Hobby | active |
 | [Wildlife photography](photography.md) | Hobby | paused |
+| [Mental health](mental-health.md) | Health > Mental health | ongoing |
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
 | [Sport](sport.md) | Health > Sport | ongoing |
 | [Trading bot](trading-bot.md) | Money > Passive income | paused |
