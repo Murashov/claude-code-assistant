@@ -74,5 +74,7 @@ here and in CLAUDE.md.
 - Commit and push after each completed task so the owner can see results on GitHub.
 - Pushes with personal data are allowed by a `Bash(git push:*)` rule in
   `/home/claude/.claude/settings.json` (added 2026-11-23). Without it the
-  auto-mode classifier blocks them even with Art's approval in chat.
+  auto-mode classifier blocks them even with Art's approval in chat. The rule
+  only matches a standalone push: commit in one command, then run
+  `git -C /workspace push origin main` as its own command.
 - Use clear, descriptive commit messages.
