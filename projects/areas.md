@@ -33,6 +33,7 @@ Task owner labels:
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
 | [Driver's license in Brazil](drivers-license.md) | Documents and admin | idea |
 | [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
+| [Family](family.md) | Family | ongoing |
 | [Friends: regular check-ins](friends-check-ins.md) | Friends | ongoing |
 | [Investments: crypto and stocks](investments.md) | Money > Passive income | active |
 | [Ktool (startup job)](ktool.md) | Money > Employment | active |
