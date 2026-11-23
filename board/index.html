@@ -134,21 +134,23 @@ footer{color:var(--muted);font-size:13px}
     <ul id="backlog"></ul>
   </section>
 
-  <footer>Source: projects folder in the assistant workspace repo. Nothing here is scheduled yet; planning comes later.</footer>
+  <footer>Source: projects and plans folders in the assistant workspace repo. Scheduled items are on the Managed calendar.</footer>
 </div>
 
 <script>
 const LANES = [
-  {cls:"hot", title:"This week", range:"23–29 Nov", items:[
-    {t:"Transfer lion's mane to fresh agar", d:"by 29 Nov", p:"Hobby · culture has filled the plate"},
-    {t:"Help Dad get a crypto card", d:"no date", p:"Loose task · marked important", flag:true},
-    {t:"Remind the investor about your share", d:"before next round", p:"Ktool · register share before the round"}
+  {cls:"hot", title:"This week, scheduled", range:"23–29 Nov", items:[
+    {t:"Remind the investor about your share", d:"Mon 08:00", p:"Ktool · deep work, as an exception"},
+    {t:"Help Dad get a crypto card", d:"Tue 07:00", p:"Loose task · marked important", flag:true},
+    {t:"Think through the proactive assistant", d:"Wed 07:00", p:"Assistant · check-in summaries"},
+    {t:"Book a haircut", d:"Thu 07:00", p:"Loose task · keep the day light"},
+    {t:"Russian tax form: final return", d:"Fri 12:00", p:"Russian taxes · with your mother"},
+    {t:"Transfer lion's mane to fresh agar", d:"Sat 08:00", p:"Hobby · culture has filled the plate"}
   ]},
   {cls:"soon", title:"Before year end", range:"Dec 2026", items:[
     {t:"Ktool survival decision", d:"~early Dec", p:"Continue, or unpaid leave and job search"},
     {t:"Decide on a Portuguese teacher", d:"~23 Dec", p:"Portuguese learning"},
-    {t:"Pay overdue carnê-leão, you and Sveta", d:"by 31 Dec", p:"Taxes in Brazil · Dubai apartment, late fees"},
-    {t:"File the final Russian tax return", d:"overdue", p:"Russian taxes · with help from your mother", flag:true}
+    {t:"Pay overdue carnê-leão, you and Sveta", d:"by 31 Dec", p:"Taxes in Brazil · Dubai apartment, late fees"}
   ]},
   {cls:"", title:"Early 2027", range:"Feb–Apr 2027", items:[
     {t:"Celpe-Bras 2027/1 registration", d:"~late Feb", p:"Citizenship · short window, exam ~late Apr"}
@@ -215,7 +217,8 @@ const AREAS = [
 const BACKLOG = [
   ["art","Help Dad get a crypto card like yours (important)"],
   ["art","Vaccine appointment: Sveta is working on it"],
-  ["art","Make duplicates of the keys"]
+  ["art","Make duplicates of the keys"],
+  ["art","Haircut: book Thu 07:00, usually same day"]
 ];
 
 const LABEL = {active:"active", ongoing:"ongoing", paused:"paused", idea:"idea", decide:"decide"};
