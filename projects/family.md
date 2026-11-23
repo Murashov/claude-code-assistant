@@ -15,7 +15,7 @@ Keep track of family members and the tasks that involve them.
 | Sveta | wife | co-owns the Dubai apartment; "Sveta's training" is on the Managed calendar |
 | Mia | daughter | born in Brazil around January 2026; has two nannies |
 | Mother | mother | lives in Russia; helping with the Russian tax return |
-| Father | father | |
+| Father | father | needs help getting a crypto card like Art's (see backlog) |
 | Sister | sister | |
 
 ## Context (as Art described it)

@@ -13,7 +13,8 @@ Get a full set of blood tests done.
 - Tests wanted: lipid profile, hormones, vitamins, minerals, and similar.
 - Art needs to check whether his insurance covers them.
 - Related earlier calendar item on the Managed calendar: "Find a clinic for
-  medical testing" (2026-11-06). Whether it happened is not recorded.
+  medical testing" (2026-11-06). Art confirmed on 2026-11-23 it belongs to
+  this project; it is not done.
 
 ## Tasks
 

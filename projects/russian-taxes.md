@@ -19,8 +19,8 @@ File the final Russian tax return for the business Art closed.
 - Art needs someone in Russia to do it for him, for example his mother.
 - Earlier calendar items on the Managed calendar relate to this: "Fill out
   Russian tax form" (moved to 2026-11-12) and "Call with mother: how to submit
-  the tax form on my behalf" (moved to 2026-11-17). Whether they happened is
-  not recorded.
+  the tax form on my behalf" (last moved to 2026-11-20). On 2026-11-23 Art
+  confirmed both belong to this project; the return is still not filed.
 
 ## Tasks
 
