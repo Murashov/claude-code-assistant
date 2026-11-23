@@ -36,6 +36,7 @@ Task owner labels:
 | [Family](family.md) | Family | ongoing |
 | [Friends: regular check-ins](friends-check-ins.md) | Friends | ongoing |
 | [Hacking and pen testing](hacking.md) | Hobby | paused |
+| [Health checkups: blood work](health-checkups.md) | Health > Checkups | not started |
 | [Hiking](hiking.md) | Hobby | paused |
 | [Investments: crypto and stocks](investments.md) | Money > Passive income | active |
 | [Ktool (startup job)](ktool.md) | Money > Employment | active |
