@@ -14,13 +14,15 @@ fits a project, move it to that project file.
 
 - [ ] [art] Make duplicates of the keys
 - [ ] [art] Haircut: book it Thu 2026-11-26 07:00 (usually same day)
-- [ ] [art] Fix Mia's tent: buy pieces of wood for it on Mercado Livre
+- [ ] [art] Fix Mia's tent (wood pieces ordered on Mercado Livre 2026-11-23)
 
 ## Done
 
 - Picnic (2026-11-08)
+- Order wood pieces for Mia's tent on Mercado Livre (2026-11-23)
 
 ## Log
 
 - 2026-11-23: Created. Reviewed past Managed calendar items with Art.
 - 2026-11-23: Added: fix Mia's tent.
+- 2026-11-23: Wood for Mia's tent ordered; fixing the tent still open.
