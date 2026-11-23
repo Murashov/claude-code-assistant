@@ -31,4 +31,5 @@ Task owner labels:
 | [Brazilian citizenship](brazil-citizenship.md) | Emigration | active |
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
 | [Dubai apartment](dubai-apartment.md) | Money > Passive income | ongoing |
+| [Nashi Global](nashi-global.md) | Money > Business | decision pending |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
