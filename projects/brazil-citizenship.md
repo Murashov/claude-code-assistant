@@ -17,7 +17,7 @@ Get Brazilian citizenship (naturalization) and then a Brazilian passport.
   13.445/2017, art. 65-66, reduction to one year).
 - Main blockers: proof of Portuguese (Celpe-Bras exam) and criminal record
   certificates from the countries Art lived in (Russia and the UAE / Dubai).
-- Tax regularity in Brazil is tracked separately in [taxes](taxes.md).
+- Tax regularity in Brazil is tracked separately in [brazil-taxes](brazil-taxes.md).
 
 ## Workstreams
 

@@ -29,4 +29,5 @@ Task owner labels:
 | Project | Area | Status |
 |---------|------|--------|
 | [Brazilian citizenship](brazil-citizenship.md) | Emigration | active |
-| [Taxes: Brazil and Russia](taxes.md) | Money > Taxes | active |
+| [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
+| [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |

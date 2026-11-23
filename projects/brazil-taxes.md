@@ -1,4 +1,4 @@
-# Taxes: Brazil and Russia
+# Taxes in Brazil
 
 - Area: Money > Taxes
 - Status: active
@@ -6,14 +6,12 @@
 
 ## Goal
 
-Understand and set up correct tax payment in Brazil as a resident, and close
-out Russian tax obligations.
+Understand and set up correct tax payment in Brazil as a resident.
 
 ## Context
 
 - Art is a Brazilian tax resident.
-- Russian tax form: scheduled on 2026-11-12, with a call to Art's mother on
-  2026-11-17 about submitting it on his behalf. Outcome unknown.
+- Russian taxes are a separate project: [russian-taxes](russian-taxes.md).
 - Tax regularity likely matters for the citizenship application
   ([brazil-citizenship](brazil-citizenship.md)).
 
@@ -27,15 +25,10 @@ out Russian tax obligations.
 - [ ] [claude] Find out the next IRPF deadline and what to prepare
 - [ ] [art] Decide whether to hire a contador (accountant)
 
-### Russia
-
-- [ ] [art] Confirm whether the Russian tax form was filled and submitted
-
 ## Open questions for Art
 
 1. What are your income sources (employment abroad, business, investments)?
-2. Did the Russian tax form and the call with your mother happen?
 
 ## Log
 
-- 2026-11-23: Project created.
+- 2026-11-23: Project created. Russian part split into its own project.
