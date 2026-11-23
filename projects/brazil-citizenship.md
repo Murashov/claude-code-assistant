@@ -23,6 +23,8 @@ Get Brazilian citizenship (naturalization) and then a Brazilian passport.
 
 ### 1. Portuguese language proof (Celpe-Bras) - decision needed soon
 
+Language learning itself is tracked in [portuguese](portuguese.md).
+
 Celpe-Bras runs twice a year (Inep). Status as of 2026-11-23:
 
 | Edition | Registration | Exam in Brazil |

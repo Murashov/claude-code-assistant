@@ -52,4 +52,5 @@ Task owner labels:
 | [Nashi Global](nashi-global.md) | Money > Business | decision pending |
 | [Sport](sport.md) | Health > Sport | ongoing |
 | [Trading bot](trading-bot.md) | Money > Passive income | paused |
+| [Portuguese learning](portuguese.md) | Emigration | active |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
