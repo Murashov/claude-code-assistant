@@ -7,12 +7,13 @@ fits a project, move it to that project file.
 
 - [ ] [art] **Important.** Help Dad get a crypto card similar to Art's. He
       needs help setting it up. Was on the Managed calendar as "Create a card
-      for Dad" (2026-11-11) and forgotten. Related: [family](family.md),
+      for Dad" (2026-11-11) and forgotten. Rescheduled Tue 2026-11-24 07:00. Related: [family](family.md),
       [investments](investments.md).
 - [ ] [art] Vaccine appointment: not done yet. Sveta is working on it.
       Was on the Managed calendar 2026-11-13.
 
 - [ ] [art] Make duplicates of the keys
+- [ ] [art] Haircut: book it Thu 2026-11-26 07:00 (usually same day)
 
 ## Done
 

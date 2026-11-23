@@ -12,6 +12,8 @@
   bottom. After any project change, update those arrays and republish the
   same file path (or pass that URL from another conversation).
 - Loose tasks live in `projects/backlog.md`.
+- Weekly plans live in `plans/YYYY-MM-DD-week.md` (Monday date), with an
+  outcome column filled at the daily check-in.
 - Planned, not built yet:
   weekly plan files recording done / missed / moved, and a daily check-in plus
   weekly planning via scheduled routines with push notifications.

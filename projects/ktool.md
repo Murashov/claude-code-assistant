@@ -31,7 +31,7 @@ time whether the company survives the next funding round.
 ## Tasks
 
 - [ ] [art] Remind the investor about the share discussion; register the
-      share before the next round
+      share before the next round (scheduled Mon 2026-11-23 08:00)
 - [ ] [art] Look into non-deterministic design for the AI report integration
 - [ ] [art] Survival decision around early December: continue, or unpaid
       leave and job search

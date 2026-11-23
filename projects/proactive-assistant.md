@@ -20,9 +20,19 @@ waiting to be asked.
 - Related: voice and Pi bridge RFC in
   documents/rfc-pi-bridge-and-voice.md (not implemented).
 
+## Art's plan (2026-11-23)
+
+- Art added two blocks to his calendar: "Week plan" every Monday 07:00-08:00
+  and a daily "Check-in" 19:00-19:30.
+- Check-in: see what is done and what needs to be moved, usually together
+  with Claude.
+- Automation goal: Claude prepares the summary for these sessions, with
+  checkboxes, so Art only confirms.
+
 ## Tasks
 
 - [ ] [art] Think through how the proactive system should work
+      (scheduled Wed 2026-11-25 07:00)
 - [ ] [art] Implement the Pi bridge and voice RFC (later)
 
 ## Log

@@ -16,7 +16,8 @@
 
 ## Tasks
 
-- [ ] [art] Transfer the culture to fresh agar plates, by next week
+- [ ] [art] Transfer the culture to fresh agar plates (scheduled Sat
+      2026-11-28 08:00)
 
 ## Log
 
