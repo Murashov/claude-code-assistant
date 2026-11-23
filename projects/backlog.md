@@ -12,6 +12,8 @@ fits a project, move it to that project file.
 - [ ] [art] Vaccine appointment: not done yet. Sveta is working on it.
       Was on the Managed calendar 2026-11-13.
 
+- [ ] [art] Make duplicates of the keys
+
 ## Done
 
 - Picnic (2026-11-08)

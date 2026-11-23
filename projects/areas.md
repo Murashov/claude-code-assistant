@@ -33,6 +33,7 @@ Task owner labels:
 
 | Project | Area | Status |
 |---------|------|--------|
+| [Automated pen testing pipeline](pentest-pipeline.md) | Hobby | active |
 | [Brazilian citizenship](brazil-citizenship.md) | Emigration | active |
 | [Taxes in Brazil](brazil-taxes.md) | Money > Taxes | active |
 | [Driver's license in Brazil](drivers-license.md) | Documents and admin | idea |
