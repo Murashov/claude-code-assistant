@@ -76,5 +76,6 @@ here and in CLAUDE.md.
   `/home/claude/.claude/settings.json` (added 2026-11-23). Without it the
   auto-mode classifier blocks them even with Art's approval in chat. The rule
   only matches a standalone push: commit in one command, then run
-  `git -C /workspace push origin main` as its own command.
+  `git push origin main` as its own command from /workspace. The rule is a
+  prefix match, so `git -C /workspace push` does NOT match it.
 - Use clear, descriptive commit messages.
