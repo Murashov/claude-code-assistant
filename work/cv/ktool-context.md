@@ -66,6 +66,31 @@ the CV can pick the right highlights; most of this does not go in the CV.
    except through a migration.
 7. This **tier 0 parquet** is what the later parts of worker work on.
 
+### Worker calculation graph (step 2)
+
+- **Inputs:** the tier 0 parquet plus analysis parameters, e.g. manually
+  entered wind direction, maneuver sensitivity, and others.
+- The track and parameters go into a **graph**. Each node is an
+  **artifact**: a piece of calculation code.
+- The graph is built ahead of time: nodes fire in an order fixed at build
+  time, and the build **checks for cycles**.
+- The built graph is run by the worker: it reads the parquet and computes
+  each node; outputs of one node feed others.
+- **Caching:** each node has a **hash-based identity** made of the version
+  of its code and the parameters that actually affect it. A parameter that
+  never reaches a node does not change its hash, so changing that parameter
+  does not force a recalculation.
+- Result: only the parts of the graph affected by a parameter change or a
+  code version change are recalculated.
+- Nodes that are **expensive to store but cheap to compute are never
+  cached**; they are always recalculated on demand.
+- **Outputs** go to the frontend and to the **AI report**.
+
+## AI report: the most important feature (Art says)
+
+- To come next; Art forgot it earlier and calls it the most important part
+  of the whole project.
+
 ## Mobile app: track recorder (Kotlin Multiplatform)
 
 - Separate from the backend work. The founder had built a prototype that
