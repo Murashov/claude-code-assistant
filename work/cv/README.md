@@ -9,7 +9,7 @@
   the source of the PDF.
 - `Artyom-Murashov-CV.pdf`: the 2-page A4 PDF, built by `build_pdf.py` from
   `cv-2page.html` (needs reportlab in a venv; the script's docstring has the
-  commands). Fonts are in `fonts/` (Source Sans 3, Source Serif 4, OFL).
+  commands). Fonts are in `fonts/` (Source Sans 3, OFL).
   The script exits with an error if the result is not exactly 2 pages.
 - `linkedin.html`: the full CV split into LinkedIn form fields, plain text
   with a copy button per field, for pasting into LinkedIn by hand (no
@@ -99,3 +99,21 @@
 - Show the better-known parent in parentheses in the role heading:
   "Careem (Uber)" and "talabat (Delivery Hero)". Both are subsidiaries, so
   it is accurate, and it draws the eye.
+
+## PDF design (Art, 2026-11-24)
+
+- Art likes the look of his wife Sveta's CV
+  (`reference/Svetlana-Anastasova-CV.pdf`) and asked for his to look like
+  it, keeping the information. `build_pdf.py` now follows that layout: a
+  dark header band with four key figures, a shaded sidebar and the
+  experience in the main column, a slim band on page 2, a footer with
+  contacts. His accent is blue; hers is plum.
+- Content added for this layout, all taken from facts already in the CV and
+  kept in `cv-2page.html`: the "ex-Careem (Uber), talabat (Delivery Hero),
+  Yandex" line, the four header figures, and the four "Selected impact"
+  figures on page 2.
+- Sidebar: Profile, Highlights, Languages, Contact on page 1; Selected
+  impact, Skills, Education on page 2. No "Open to" block like in the
+  reference, because the CV also goes to investors.
+- Atom, Samsung and ISPRAS are marked `class="job early"` and are set as
+  one compact "Earlier experience" block.
