@@ -5,3 +5,4 @@
   English headings, dates and obvious typos fixed. Positions are rewritten
   one at a time, newest first, starting with Ktool. Used later to update
   LinkedIn. Target: 2 A4 pages.
+- Published as a private artifact: https://claude.ai/artifact/L9hPBUsXXsajFXFrU7ME7g (republish the same file path).

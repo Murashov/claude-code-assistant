@@ -1,22 +1,29 @@
 <title>Artyom Murashov CV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
+/* Layout: single A4 column, name block, then dated role entries */
 @page{size:A4;margin:14mm 16mm}
-:root{--ink:#1d1d1f;--muted:#5f6368;--line:#d9d9de;--accent:#1f4e79;--bg:#fff}
-body{background:var(--bg);color:var(--ink);font:10.5pt/1.4 "Helvetica Neue",Arial,sans-serif;padding-inline:16px}
+:root{--ink:#1c2128;--muted:#5b6472;--line:#d5dbe3;--accent:#1f4e79;--paper:#ffffff;--todo:#b3261e;
+  --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;--display:"Source Serif 4",Georgia,serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e4e8ee;--muted:#9aa4b2;--line:#323a46;--accent:#8db8e3;--paper:#14181e;--todo:#f2b8b5;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#e4e8ee;--muted:#9aa4b2;--line:#323a46;--accent:#8db8e3;--paper:#14181e;--todo:#f2b8b5;color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font:10.5pt/1.45 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .page{max-width:178mm;margin:0 auto;padding-block:16px}
-h1{font-size:20pt;margin:0}
+h1{font:600 22pt/1.1 var(--display);margin:0;text-wrap:balance}
 .headline{color:var(--accent);font-weight:600;margin:2px 0}
 .contact{color:var(--muted);font-size:9.5pt}
-h2{font-size:11pt;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:2px;margin:14px 0 6px}
+h2{font-size:10pt;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:2px;margin:14px 0 6px}
 .job{margin-bottom:10px;break-inside:avoid-page}
 .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 12px}
 .role{font-weight:700}
-.meta{color:var(--muted);font-size:9.5pt}
+.meta{color:var(--muted);font-size:9.5pt;font-variant-numeric:tabular-nums}
 p,ul{margin:3px 0}
 ul{padding-left:16px}
-.todo{color:#b00020;font-style:italic}
-@media print{body{padding:0}.page{padding:0}.todo{display:none}}
+li{margin:2px 0}
+.todo{color:var(--todo);font-style:italic}
+@media print{:root{--ink:#1c2128;--muted:#5b6472;--line:#d5dbe3;--accent:#1f4e79;--paper:#fff;color-scheme:light}body{padding:0}.page{padding:0}.todo{display:none}}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600&display=swap">
 
 <div class="page">
 <!-- Working version of the CV. Started 2026-11-24 from the LinkedIn PDF,
@@ -43,7 +50,14 @@ ul{padding-left:16px}
 
 <section class="job" id="ktool">
   <div class="job-head"><span class="role">Vice President of Engineering · Ktool.Hu Sailing Analytics</span><span class="meta">Nov 2025 – Present · Dubai, UAE</span></div>
-  <p class="todo">Not written yet: next step.</p>
+  <p>Founding engineer at a sailing performance analytics startup. In one year, took a buggy desktop prototype to a production platform with an AI coaching report: about 500 registered sailors and an 8% conversion to paid subscriptions.</p>
+  <ul>
+    <li>Led the move from a client-heavy PyQt desktop prototype to a Python client-server platform, migrated in stages. Shipped the first stage in two months by isolating the legacy calculation engine behind a clean interface.</li>
+    <li>Designed and built the analytics engine from scratch. A vendor-agnostic ingestion pipeline turns files from many tracker formats into one normalized, weather-enriched dataset stored as immutable Parquet on S3. A DAG of calculation nodes with hash-based caching then recomputes only the nodes a parameter or code change actually affects.</li>
+    <li>Built the AI coaching report (Claude on AWS Bedrock), released to all users in November 2026. Code makes every analytical decision and the model only explains it. Each session gets a compact, token-efficient data artifact and a prompt assembled for the boat class and wind conditions, written with the world-champion head coach. The result is consistent, trustworthy output.</li>
+    <li>Built a Kotlin Multiplatform track-recording app for iOS and Android (Clean Architecture), ready to ship as the first step toward the company's own tracking hardware.</li>
+    <li>Set up an AI-assisted engineering workflow (agents, skills and documentation guardrails) that lets the physicist co-founder ship production features on his own.</li>
+  </ul>
 </section>
 
 <section class="job" id="nashi">
