@@ -32,3 +32,6 @@
 - Tell what the app was for, the features and what he did. Focus on the UI
   work, not on the chat.
 - No links to the app.
+- Keep the architecture: "MVI with Redux" stays (it is an architecture, not
+  a library, and engineers reading the CV may like it). Only library names
+  are removed.
