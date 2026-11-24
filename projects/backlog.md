@@ -17,7 +17,8 @@ fits a project, move it to that project file.
 - [ ] [art+claude] Create a CV from LinkedIn, for job applications and for
       the startup investment. Profile:
       https://www.linkedin.com/in/artyom-murashov-22236a127 (public view is
-      truncated; full text needed from Art).
+      truncated; full text needed from Art). Scheduled Tue 2026-11-24
+      14:00-15:00 (deep work, Art's choice).
 
 ## Done
 
