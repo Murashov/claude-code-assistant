@@ -53,3 +53,4 @@ time whether the company survives the next funding round.
 
 - 2026-11-23: Recorded during backlog intake.
 - 2026-11-23: Art wrote to the investor about the share. Waiting for reply.
+- 2026-11-24: Check-in: still no reply from the investor.
