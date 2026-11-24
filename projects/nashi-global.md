@@ -20,7 +20,7 @@ Decide what to do with the Nashi Global service, possibly close it.
 
 - Details in work/cv/nashi-context.md: team of three (Art, Sveta, a local
   immigration blogger), a Telegram mini-app marketplace of expat services,
-  3 months from idea to launch.
+  2 months from idea to launch.
 - Why it stalled: Art's assumption that expats are a paying audience was
   wrong. Advertisers were easy to find, paying users were not. Art calls it
   about to be closed.

@@ -29,7 +29,7 @@ highlights; most of this does not go in the CV.
   **inside Telegram**, with deep Telegram integration. It opens from the
   browser and as a **Telegram mini-app**, and has **bot workflows** for
   moderation, communication with users, and more.
-- About **3 months from idea to launch**.
+- About **2 months from idea to launch** (Art corrected from 3).
 - From LinkedIn (not repeated by Art today): launched in 3 countries; an AI
   agent system that monitors Telegram chats and finds leads through an
   AI-based funnel.
