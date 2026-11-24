@@ -86,3 +86,9 @@
 - Samsung and ISPRAS: one line each.
 - Summary: the Scale bullet. Locations of the Russian roles shortened to
   "Russia".
+
+## Parent companies (Art, 2026-11-24)
+
+- Show the better-known parent in parentheses in the role heading:
+  "Careem (Uber)" and "talabat (Delivery Hero)". Both are subsidiaries, so
+  it is accurate, and it draws the eye.
