@@ -58,3 +58,17 @@ Rules:
 - A slot is occupied if a real meeting or a Managed calendar event overlaps it.
 - Write events only to the Managed calendar (see the calendar rule above),
   one hour, marked busy.
+
+## Career and job search (set 2026-11-24)
+
+- Founding engineer at Ktool (sailing analytics startup); raising
+  investment for it. If that fails he will look for a job (never state this
+  in the CV).
+- Wants lead engineer or engineering manager roles, not executive ones; a
+  CTO title only at a really small startup. Recruiters currently message
+  him to hire for him, which he does not want.
+- Would look for work in Dubai; CV contact location is Dubai.
+- Languages: Russian native, English C2, Portuguese A2.
+- Hobby: app and IoT security research with bug bounties (Xiaomi, Whoop);
+  won a prize in Telegram's Android animation contest.
+- CV work lives in `work/cv/` (README there holds the rules and decisions).

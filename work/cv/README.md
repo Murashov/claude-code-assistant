@@ -28,3 +28,27 @@
 - Write the whole CV in full first and do not cut yet. The full version is
   what goes to LinkedIn, where more text is fine.
 - After that, condense it into the 2-page CV, which will need heavy cuts.
+
+## Positioning (Art, 2026-11-24)
+
+- Target roles: lead engineer or engineering manager, not executive roles.
+  A CTO title is fine only at a really small startup that needs the same
+  hands-on competencies.
+- Problem to fix: recruiters message him asking to hire people for him,
+  not to hire him. The profile should not read as an executive's.
+- Headline: drop "CTO at Nashi.Global"; "Founding Engineer at Ktool" is
+  better than VP of Engineering there; add Founder and/or Android Expert;
+  keep Security Researcher.
+- Location in the contact line: Dubai. He will be looking for work in Dubai
+  (he lives in Curitiba).
+- Languages: Russian native, English C2, Portuguese A2 (hopes for B1 soon).
+- Security research stays in the summary only. It is a hobby, not work.
+  The bounties (Xiaomi, Whoop and others) were for medium-severity bugs in
+  IoT devices; severity is not stated in the CV.
+- Telegram Android contest: he won a money prize, "third place or
+  something like that", in an animation contest. His animation runs
+  directly on the GPU with a shader. Telegram later shipped this animation
+  in the app with its own, slightly better optimized implementation. The CV
+  says "prize winner" until the place and year are confirmed.
+- Skills: rebuilt from the rewritten roles. Telethon (on LinkedIn) is
+  dropped under the no-library-names rule; ask Art if it should return.
