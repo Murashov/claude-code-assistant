@@ -142,3 +142,24 @@ Art calls this the most important part of the whole project.
 ## To come (Art continues)
 
 - More on worker and later stages, AI report integration, team, results.
+
+## State after one year (as of 2026-11-24)
+
+- From an unusable prototype to a complex, functional product: many tracker
+  formats, a complex UI with video support. The UI and video are **not
+  Art's area**, so take little credit there; the data side is his.
+- **AI report released to the general public on 2026-11-23.**
+- About **500 registrations** and **70 subscriptions**. Subscriptions are
+  somewhat inflated by promo codes given to ambassadors; excluding those,
+  conversion to paid is about **8%**.
+- Mobile app: not released yet, ready with minor changes once the company
+  decides to distribute it.
+- Hardware: research and preparation phase, looking for suppliers.
+
+## What the investment is for
+
+- Ship the hardware.
+- Move into B2B sailing: race management and live tracking, not only
+  analytics.
+- The CV supports this fundraising. (Its fallback use for a job search is
+  Art's private context; never put it in the CV.)

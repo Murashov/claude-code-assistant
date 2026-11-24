@@ -28,6 +28,17 @@ time whether the company survives the next funding round.
   If it does not, Art may go on unpaid leave and start looking for another
   job.
 
+## Product facts (Art, 2026-11-24)
+
+- Sailing performance analytics. Art joined ~Nov 2025 as founding engineer
+  (title VP of Engineering). Full story in work/cv/ktool-context.md.
+- AI report (Claude on AWS Bedrock) released to the public 2026-11-23.
+- ~500 registrations, 70 subscriptions (~8% paid conversion excluding promo
+  codes). Mobile app (Kotlin Multiplatform) ready but not released.
+  Hardware in research, looking for suppliers.
+- Funding would go to hardware and B2B: race management and live tracking.
+- Art is building his CV for the fundraising (work/cv/).
+
 ## Tasks
 
 - [x] [art] Remind the investor about the share discussion (done
