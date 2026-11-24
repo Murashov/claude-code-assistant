@@ -1,0 +1,235 @@
+<title>LinkedIn Paste Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600&display=swap">
+<style>
+/* One narrow column of LinkedIn form sections; each field is a label row with
+   its copy button, and the exact text to paste underneath. */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --field: #f6f8fb;
+  --ink: #1c2128; --muted: #5b6472; --line: #d5dbe3;
+  --accent: #1f4e79; --on-accent: #ffffff; --done: #2c6e52; --done-bg: #e4f1ea;
+  --body: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --display: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11151b; --surface: #1a2029; --field: #141920;
+    --ink: #e6eaf0; --muted: #9aa5b4; --line: #2d3644;
+    --accent: #8ab8e6; --on-accent: #0e1620; --done: #7fcaa3; --done-bg: #1c3329;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11151b; --surface: #1a2029; --field: #141920;
+  --ink: #e6eaf0; --muted: #9aa5b4; --line: #2d3644;
+  --accent: #8ab8e6; --on-accent: #0e1620; --done: #7fcaa3; --done-bg: #1c3329;
+}
+body {
+  background: var(--bg); color: var(--ink);
+  font: 16px/1.5 var(--body);
+  padding-block: 24px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+h1 { font: 600 28px/1.2 var(--display); margin: 0; text-wrap: balance; }
+.lede { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.status b { color: var(--ink); }
+nav { display: flex; flex-wrap: wrap; gap: 6px; }
+nav a {
+  color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 600;
+  padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+}
+.group {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px; display: flex; flex-direction: column; gap: 14px;
+  scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 12px);
+}
+.group h2 { font: 600 19px/1.25 var(--display); margin: 0; text-wrap: balance; }
+.note { margin: 0; color: var(--muted); font-size: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-head { display: flex; align-items: center; gap: 10px; min-height: 36px; }
+.label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: auto; }
+.count, .hint { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.value {
+  background: var(--field); border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere;
+  -webkit-user-select: all; user-select: all;
+}
+.value.plain { background: none; border-style: dashed; -webkit-user-select: text; user-select: text; }
+button { font: 600 14px/1 var(--body); cursor: pointer; }
+.copy {
+  background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent);
+  border-radius: 6px; padding: 10px 16px; min-width: 84px;
+}
+.done .copy, .chip.done { background: var(--done-bg); color: var(--done); border-color: var(--done); }
+.done .value { border-color: var(--done); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--field); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 999px; padding: 10px 14px;
+}
+.reset { background: none; color: var(--accent); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; }
+.langs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.langs li { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.langs span { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>LinkedIn Paste Kit</h1>
+    <p class="lede">The full CV, split into LinkedIn's form fields. Copy a field, paste it into the matching box on LinkedIn. Copied fields turn green so you can stop and pick up later.</p>
+  </header>
+  <div class="status"><span><b id="n-done">0</b> of <b id="n-all">0</b> copied</span><button type="button" class="reset" id="reset">Clear marks</button></div>
+  <nav aria-label="Sections"><a href="#intro">Intro</a><a href="#about">About</a><a href="#ktool">Ktool</a><a href="#nashi">Nashi.Global</a><a href="#careem">Careem</a><a href="#gptbot">AI bot</a><a href="#talabat">talabat</a><a href="#vpn">VPN app</a><a href="#yandex">Yandex</a><a href="#mts">MTS</a><a href="#atom">Atom</a><a href="#samsung">Samsung</a><a href="#ispras">ISPRAS</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#languages">Languages</a></nav>
+<section class="group" id="intro"><h2>Intro</h2><div class="field" data-id="intro-headline-bcf71b0f"><div class="field-head"><span class="label">Headline</span><span class="count">75 / 220</span><button type="button" class="copy" id="b-intro-headline-bcf71b0f">Copy</button></div><div class="value" tabindex="0">Founding Engineer at Ktool | Android Expert | Founder | Security Researcher</div></div><div class="field" data-id="intro-location-569bcf93"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-intro-location-569bcf93">Copy</button></div><div class="value" tabindex="0">Dubai, United Arab Emirates</div></div></section>
+<section class="group" id="about"><h2>About</h2><div class="field" data-id="about-about-2187314c"><div class="field-head"><span class="label">About</span><span class="count">1,073 / 2,600</span><button type="button" class="copy" id="b-about-about-2187314c">Copy</button></div><div class="value" tabindex="0">Engineering lead with over 10 years of commercial Android development, including apps used by millions of people at Yandex, talabat and Careem. Currently the founding engineer of a sailing analytics startup, where in one year I took an early desktop prototype to a production platform with an AI coaching report.
+
+• Team leadership: tech lead of a distributed squad at Careem, aligning four organizations including the transport regulator. Led cross-squad initiative teams at talabat and an Android feature team at MTS.
+• Scale: worked on apps with hundreds of thousands to tens of millions of monthly users. Part of the squad that pioneered talabat&#x27;s move to Flutter, which went on to cover the whole app.
+• Zero to launch: built and launched three products of my own, and the Ktool platform as its founding engineer. Comfortable across mobile, back end and AI features.
+• Outside work: app and IoT security research as a hobby, with bug bounties from Xiaomi, Whoop and others. Prize winner in Telegram&#x27;s Android contest for an animation rendered on the GPU with a shader.</div></div></section>
+<section class="group" id="ktool"><h2>Ktool.Hu Sailing Analytics</h2><p class="note">The 8% conversion is left out here until you confirm the figure.</p><div class="field" data-id="ktool-title-36316651"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-ktool-title-36316651">Copy</button></div><div class="value" tabindex="0">Founding Engineer</div></div><div class="field" data-id="ktool-company-9289c76a"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-ktool-company-9289c76a">Copy</button></div><div class="value" tabindex="0">Ktool.Hu Sailing Analytics</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Nov 2025 – Present</div></div><div class="field" data-id="ktool-location-7fbbbd08"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-ktool-location-7fbbbd08">Copy</button></div><div class="value" tabindex="0">Dubai, UAE</div></div><div class="field" data-id="ktool-description-adc6a3ea"><div class="field-head"><span class="label">Description</span><span class="count">1,442 / 2,000</span><button type="button" class="copy" id="b-ktool-description-adc6a3ea">Copy</button></div><div class="value" tabindex="0">Joined a sailing performance analytics startup as its first engineer. In one year, took an early desktop prototype to a production platform with an AI coaching report and paid subscriptions.
+
+• Led the move from a client-heavy PyQt desktop prototype to a Python client-server platform, migrated in stages. Shipped the first stage in two months by isolating the legacy calculation engine behind a clean interface.
+• Designed and built the analytics engine from scratch. A vendor-agnostic ingestion pipeline turns files from many tracker formats into one normalized, weather-enriched dataset that is stored once and never changes. A DAG of calculation nodes with hash-based caching then recomputes only the nodes a parameter or code change actually affects.
+• Built the AI coaching report, released to all users in November 2026. Code makes every analytical decision and the model only explains it. Each session gets a compact, token-efficient data artifact and a prompt assembled for the boat class and wind conditions, written with the world-champion head coach. The result is consistent, trustworthy output.
+• Built a Kotlin Multiplatform track-recording app for iOS and Android (Clean Architecture), ready to ship as part of a wider product ecosystem beyond analytics.
+• Set up an AI-assisted engineering workflow (agents, skills and documentation guardrails) that lets the algorithm engineer co-founder ship production features on his own.</div></div></section>
+<section class="group" id="nashi"><h2>Nashi.Global</h2><div class="field" data-id="nashi-title-c7bb258f"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-nashi-title-c7bb258f">Copy</button></div><div class="value" tabindex="0">Co-founder and Chief Technology Officer</div></div><div class="field" data-id="nashi-company-c7552019"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-nashi-company-c7552019">Copy</button></div><div class="value" tabindex="0">Nashi.Global</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">May 2025 – Present</div></div><div class="field" data-id="nashi-description-12cbe561"><div class="field-head"><span class="label">Description</span><span class="count">1,044 / 2,000</span><button type="button" class="copy" id="b-nashi-description-12cbe561">Copy</button></div><div class="value" tabindex="0">Co-founded a marketplace inside Telegram where expats offer services to other expats in the Russian-speaking community abroad. Team of three, covering engineering, product design and community marketing. Launched in 3 countries.
+
+• Took the product from idea to launch in about two months as the only engineer, building the Vue.js front end and the Django back end.
+• Built it as a Telegram mini-app with deep platform integration, plus a bot that runs moderation and communication with users.
+• Built an AI agent system that monitors relevant Telegram chats and finds potential leads through an AI-based funnel, used for promotion and market research.
+• Shared product decisions beyond engineering: monetization, user acquisition through a network of channel-owner ambassadors, and testing several product hypotheses.
+
+Status: in maintenance mode. Service providers joined readily, but paying demand stayed too low for the marketplace to grow. The main lesson I took from it: test the audience&#x27;s willingness to pay before building the product.</div></div></section>
+<section class="group" id="careem"><h2>Careem (Uber)</h2><p class="note">Typing the company with the parent in parentheses drops the company logo. Picking the company page from LinkedIn&#x27;s dropdown keeps the logo but not the parent name.</p><div class="field" data-id="careem-title-4d6c97ce"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-careem-title-4d6c97ce">Copy</button></div><div class="value" tabindex="0">Senior Software Engineer II, Tech Lead (Hala squad)</div></div><div class="field" data-id="careem-company-24678520"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-careem-company-24678520">Copy</button></div><div class="value" tabindex="0">Careem (Uber)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">May 2023 – Jan 2025</div></div><div class="field" data-id="careem-location-7fbbbd08"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-careem-location-7fbbbd08">Copy</button></div><div class="value" tabindex="0">Dubai, UAE</div></div><div class="field" data-id="careem-description-e9345f27"><div class="field-head"><span class="label">Description</span><span class="count">885 / 2,000</span><button type="button" class="copy" id="b-careem-description-e9345f27">Copy</button></div><div class="value" tabindex="0">Tech lead of the distributed squad that connects the Careem ride-hailing app to Hala, Dubai&#x27;s city taxi, through a third-party taximeter approved by the transport regulator (RTA).
+
+• Owned the squad&#x27;s mobile engineering decisions and contributed to its backend design decisions.
+• Designed and implemented an extension of the protobuf-based USB protocol between the embedded taximeter and the Android driver app.
+• Designed High Demand Locations, a major Hala feature, and led the communication around it.
+• Led technical alignment between Careem, the taximeter vendor, Hala and the RTA, where every protocol change needed agreement from all sides. Maintained the integration documentation.
+• Built a remote testing setup for the physical taximeter.
+• Architected and implemented features in both the customer and driver Android apps, and helped introduce Scrum practices in the squad.</div></div></section>
+<section class="group" id="gptbot"><h2>AI assistant bot for Telegram (own product)</h2><p class="note">LinkedIn asks for start and end months. The CV has only the years, so pick the months yourself.</p><div class="field" data-id="gptbot-title-40812133"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-gptbot-title-40812133">Copy</button></div><div class="value" tabindex="0">Founder</div></div><div class="field" data-id="gptbot-company-377f1961"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-gptbot-company-377f1961">Copy</button></div><div class="value" tabindex="0">AI assistant bot for Telegram (own product)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">2023 – 2025</div></div><div class="field" data-id="gptbot-description-41b9dd40"><div class="field-head"><span class="label">Description</span><span class="count">685 / 2,000</span><button type="button" class="copy" id="b-gptbot-description-41b9dd40">Copy</button></div><div class="value" tabindex="0">Built and ran a paid AI assistant inside Telegram on top of the OpenAI API, for Russian-speaking users. Developed in 2023, launched in early 2024 and run until late 2025.
+
+• Made conversations feel native to chat: reply threads act as separate conversations with their own context, so one chat can hold several at once, and long answers are split into linked messages to fit Telegram&#x27;s size limits.
+• Added understanding of links, media and images as soon as the API supported them.
+• Ran subscriptions with card and crypto payments, keeping the API cost per user below the revenue per user. It earned a small profit until the market filled with similar services, and I then closed it.</div></div></section>
+<section class="group" id="talabat"><h2>talabat (Delivery Hero)</h2><p class="note">Typing the company with the parent in parentheses drops the company logo. Picking the company page from LinkedIn&#x27;s dropdown keeps the logo but not the parent name.</p><div class="field" data-id="talabat-title-e79425f9"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-talabat-title-e79425f9">Copy</button></div><div class="value" tabindex="0">Senior Android Engineer</div></div><div class="field" data-id="talabat-company-cc2c07eb"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-talabat-company-cc2c07eb">Copy</button></div><div class="value" tabindex="0">talabat (Delivery Hero)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Jul 2021 – May 2023</div></div><div class="field" data-id="talabat-location-7fbbbd08"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-talabat-location-7fbbbd08">Copy</button></div><div class="value" tabindex="0">Dubai, UAE</div></div><div class="field" data-id="talabat-description-3262b830"><div class="field-head"><span class="label">Description</span><span class="count">1,310 / 2,000</span><button type="button" class="copy" id="b-talabat-description-3262b830">Copy</button></div><div class="value" tabindex="0">Worked on both the native Android and Flutter sides of the talabat app, focused on the grocery shopping experience. Part of the squad that pioneered the company&#x27;s move to Flutter, a migration that went on to cover the whole app and all of its roughly 50 mobile engineers.
+
+• Among the first engineers to migrate a feature to Flutter. Our squad set the architecture and common patterns that the rest of the company followed, and its Grocery Home Page, the first major Flutter screen, became the reference for other teams.
+• Designed the architecture of several cross-platform features and was the first adopter of Flutter integration tests.
+• Led two cross-domain Android initiatives on UI testing: a new mocking mechanism that greatly reduced test flakiness, and bottleneck monitoring that exposed a problem present in most UI tests. Fixing it cut the average UI test step duration by 30%.
+• Proposed a quarantine process for unstable UI tests that improved pipeline stability and was adopted across the company.
+• Led two Flutter initiatives: centralized dependency versioning, which let the number of Flutter packages grow without version conflicts, and contract-based API generation across platforms to improve app stability.
+• Migrated the Flutter app to null safety. Onboarded and mentored new developers.</div></div></section>
+<section class="group" id="vpn"><h2>VPN app (own product)</h2><div class="field" data-id="vpn-title-65fe2af6"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-vpn-title-65fe2af6">Copy</button></div><div class="value" tabindex="0">Co-founder</div></div><div class="field" data-id="vpn-company-cd77fce5"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-vpn-company-cd77fce5">Copy</button></div><div class="value" tabindex="0">VPN app (own product)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Jan 2020 – Jan 2022</div></div><div class="field" data-id="vpn-location-42519d2d"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-vpn-location-42519d2d">Copy</button></div><div class="value" tabindex="0">Moscow Oblast, Russia</div></div><div class="field" data-id="vpn-description-7dd6c453"><div class="field-head"><span class="label">Description</span><span class="count">656 / 2,000</span><button type="button" class="copy" id="b-vpn-description-7dd6c453">Copy</button></div><div class="value" tabindex="0">Built and launched a consumer VPN app for Android as a side project with a product designer co-founder. My first product of my own, taken from idea to store release in summer 2020.
+
+• Wrote the Android client in Kotlin (MVI, Clean Architecture) with in-app purchases, ads, analytics and custom animated UI.
+• Wrote the Django REST back end and a Docker setup that brings up a VPN server in a new country in one step.
+• Ran the business side too: ad monetization, paid user acquisition and infrastructure costs. Learned first-hand that bandwidth costs grow with every user of a high-traffic product, and that revenue tied to a single ad platform is fragile.</div></div></section>
+<section class="group" id="yandex"><h2>Yandex Go (Yango)</h2><div class="field" data-id="yandex-title-fba4d141"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-yandex-title-fba4d141">Copy</button></div><div class="value" tabindex="0">Android Developer</div></div><div class="field" data-id="yandex-company-bba02b99"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-yandex-company-bba02b99">Copy</button></div><div class="value" tabindex="0">Yandex Go (Yango)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Oct 2019 – Apr 2021</div></div><div class="field" data-id="yandex-location-42519d2d"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-yandex-location-42519d2d">Copy</button></div><div class="value" tabindex="0">Moscow Oblast, Russia</div></div><div class="field" data-id="yandex-description-5cb6cc84"><div class="field-head"><span class="label">Description</span><span class="count">1,131 / 2,000</span><button type="button" class="copy" id="b-yandex-description-5cb6cc84">Copy</button></div><div class="value" tabindex="0">Worked in the Android team of Yandex.Pro (formerly Taximeter), the app used by the company&#x27;s taxi drivers and Yandex.Eats couriers, with about 600,000 monthly active drivers at the time. Java and Kotlin.
+
+• Contributed to the Yandex.Fuel SDK integration: gas station pins on the map, routing to a station with its card opening on arrival, sign-up for self-employed drivers, and balance and limit management.
+• Contributed to core driver features: Driver Fix (pay for time online instead of per order), Reposition (taking orders on the way to a chosen destination), the Order screen, and Tiredness (limits on unsafe working hours).
+• Did most of this work on the map side of these features, using the internal Yandex Maps (Yango Maps) APIs.
+• Early Flutter adopter inside the company: worked with the Flutter team on map features, experience I later built on at talabat.
+• Worked daily in code inherited from Uber&#x27;s regional business after it merged with Yandex.Taxi, built on Uber&#x27;s RIBs architecture and its in-house adaptation.
+• Helped with a few features in the customer app, which had tens of millions of monthly active users.</div></div></section>
+<section class="group" id="mts"><h2>MTS Group (Stream)</h2><p class="note">The CV says 2018 – 2019. These months are the start of your first stint and the end of the second, merged into one entry.</p><div class="field" data-id="mts-title-5ee6281d"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-mts-title-5ee6281d">Copy</button></div><div class="value" tabindex="0">Senior Android Developer</div></div><div class="field" data-id="mts-company-dda22a94"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-mts-company-dda22a94">Copy</button></div><div class="value" tabindex="0">MTS Group (Stream)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Feb 2018 – Sep 2019</div></div><div class="field" data-id="mts-location-42519d2d"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-mts-location-42519d2d">Copy</button></div><div class="value" tabindex="0">Moscow Oblast, Russia</div></div><div class="field" data-id="mts-description-43ef1985"><div class="field-head"><span class="label">Description</span><span class="count">635 / 2,000</span><button type="button" class="copy" id="b-mts-description-43ef1985">Copy</button></div><div class="value" tabindex="0">Worked at Stream, the mobile app subsidiary of MTS, Russia&#x27;s largest mobile network operator, on Smart University, an interactive Duolingo-style learning app. On the project from its start through launch and the period after it. Led an Android feature team. Kotlin, MVI with Redux architecture.
+
+• Did mostly interaction-heavy UI work: lessons are made of interactive task screens, so I built many custom views, drag and drop interactions and list animations.
+• Built the exam flow, with complex multi-state UI and logic.
+• Built the education track screen and the statistics screen with its graphs and charts.
+• Built the in-app chat.</div></div></section>
+<section class="group" id="atom"><h2>Atom</h2><div class="field" data-id="atom-title-fba4d141"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-atom-title-fba4d141">Copy</button></div><div class="value" tabindex="0">Android Developer</div></div><div class="field" data-id="atom-company-80724a45"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-atom-company-80724a45">Copy</button></div><div class="value" tabindex="0">Atom</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Jul 2016 – Dec 2017</div></div><div class="field" data-id="atom-location-42519d2d"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-atom-location-42519d2d">Copy</button></div><div class="value" tabindex="0">Moscow Oblast, Russia</div></div><div class="field" data-id="atom-description-1d20a9f7"><div class="field-head"><span class="label">Description</span><span class="count">556 / 2,000</span><button type="button" class="copy" id="b-atom-description-1d20a9f7">Copy</button></div><div class="value" tabindex="0">The only Android developer at a small startup, in my first commercial Android role. Built two dating apps from scratch and launched the first one.
+
+• Designed, built and launched the Android client of Barev, a dating app for an Armenian audience, in Java: a photo-heavy feed, connection requests and chat.
+• Designed and built a second dating app in Kotlin, with Clean Architecture and MVVM. The company put the project on hold before release.
+• Helped build the Django back end and took part in product decisions, as everyone does in a small startup team.</div></div></section>
+<section class="group" id="samsung"><h2>Samsung Electronics</h2><div class="field" data-id="samsung-title-13ff630e"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-samsung-title-13ff630e">Copy</button></div><div class="value" tabindex="0">Junior Software Engineer</div></div><div class="field" data-id="samsung-company-db8c4e21"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-samsung-company-db8c4e21">Copy</button></div><div class="value" tabindex="0">Samsung Electronics</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Jul 2015 – Dec 2015</div></div><div class="field" data-id="samsung-location-90107347"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-samsung-location-90107347">Copy</button></div><div class="value" tabindex="0">Moscow, Russia</div></div><div class="field" data-id="samsung-description-3779f538"><div class="field-head"><span class="label">Description</span><span class="count">327 / 2,000</span><button type="button" class="copy" id="b-samsung-description-3779f538">Copy</button></div><div class="value" tabindex="0">Part-time junior C++ developer at Samsung&#x27;s R&amp;D center in Moscow while finishing university. Worked in the team building an internal Frida-like tool for static and dynamic code analysis.
+
+• Contributed to several parts of the tool in C++, with some Java: abstract syntax tree traversal, syntax highlighting and parts of the UI.</div></div></section>
+<section class="group" id="ispras"><h2>ISPRAS (Russian Academy of Sciences)</h2><div class="field" data-id="ispras-title-c003857a"><div class="field-head"><span class="label">Title</span><button type="button" class="copy" id="b-ispras-title-c003857a">Copy</button></div><div class="value" tabindex="0">Intern C++ Developer</div></div><div class="field" data-id="ispras-company-8010f466"><div class="field-head"><span class="label">Company</span><button type="button" class="copy" id="b-ispras-company-8010f466">Copy</button></div><div class="value" tabindex="0">ISPRAS (Russian Academy of Sciences)</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">Sep 2014 – Jun 2015</div></div><div class="field" data-id="ispras-location-42519d2d"><div class="field-head"><span class="label">Location</span><button type="button" class="copy" id="b-ispras-location-42519d2d">Copy</button></div><div class="value" tabindex="0">Moscow Oblast, Russia</div></div><div class="field" data-id="ispras-description-c51a2bf6"><div class="field-head"><span class="label">Description</span><span class="count">386 / 2,000</span><button type="button" class="copy" id="b-ispras-description-c51a2bf6">Copy</button></div><div class="value" tabindex="0">Internship at the Institute for System Programming. Built a plugin for a large-scale binary code analysis system, in C++ with Qt.
+
+• The plugin takes a raw memory dump from an Android emulator running the Dalvik VM and a pointer to an object in it, and reconstructs that Java object in human-readable form.
+• Worked out how objects are laid out in memory from Dalvik&#x27;s open source code.</div></div></section>
+<section class="group" id="education"><h2>Education</h2><div class="field" data-id="education-school-66357780"><div class="field-head"><span class="label">School</span><button type="button" class="copy" id="b-education-school-66357780">Copy</button></div><div class="value" tabindex="0">Higher School of Economics</div></div><div class="field" data-id="education-degree-29fc55c7"><div class="field-head"><span class="label">Degree</span><button type="button" class="copy" id="b-education-degree-29fc55c7">Copy</button></div><div class="value" tabindex="0">Bachelor&#x27;s degree</div></div><div class="field" data-id="education-field-of-study-5d730b62"><div class="field-head"><span class="label">Field of study</span><button type="button" class="copy" id="b-education-field-of-study-5d730b62">Copy</button></div><div class="value" tabindex="0">Information Technology</div></div><div class="field"><div class="field-head"><span class="label">Dates</span><span class="hint">set in the form</span></div><div class="value plain">2012 – 2016</div></div></section>
+<section class="group" id="skills"><h2>Skills</h2><p class="note">LinkedIn takes skills one at a time. Tap a skill to copy it.</p><div class="chips"><button type="button" class="chip" id="s-5d018fb1" data-id="skill-5d018fb1">Android</button><button type="button" class="chip" id="s-749a22ae" data-id="skill-749a22ae">Kotlin</button><button type="button" class="chip" id="s-df2849ec" data-id="skill-df2849ec">Java</button><button type="button" class="chip" id="s-e5974716" data-id="skill-e5974716">Flutter</button><button type="button" class="chip" id="s-36461f30" data-id="skill-36461f30">Dart</button><button type="button" class="chip" id="s-cdf66866" data-id="skill-cdf66866">Kotlin Multiplatform</button><button type="button" class="chip" id="s-a378bd8e" data-id="skill-a378bd8e">Python</button><button type="button" class="chip" id="s-c0eb71d0" data-id="skill-c0eb71d0">Django</button><button type="button" class="chip" id="s-3890e23a" data-id="skill-3890e23a">REST APIs</button><button type="button" class="chip" id="s-f5f9fa9b" data-id="skill-f5f9fa9b">Docker</button><button type="button" class="chip" id="s-3212ea86" data-id="skill-3212ea86">Vue.js</button><button type="button" class="chip" id="s-3c809503" data-id="skill-3c809503">Large Language Models (LLM)</button><button type="button" class="chip" id="s-f577ec4b" data-id="skill-f577ec4b">AI Agents</button><button type="button" class="chip" id="s-8a7541bb" data-id="skill-8a7541bb">Clean Architecture</button><button type="button" class="chip" id="s-c487ca01" data-id="skill-c487ca01">MVVM</button><button type="button" class="chip" id="s-64e2c467" data-id="skill-64e2c467">MVI</button><button type="button" class="chip" id="s-cb417bc6" data-id="skill-cb417bc6">Redux</button><button type="button" class="chip" id="s-23043dfa" data-id="skill-23043dfa">Data Pipelines</button><button type="button" class="chip" id="s-0dbfbd7c" data-id="skill-0dbfbd7c">Technical Leadership</button><button type="button" class="chip" id="s-a63c3683" data-id="skill-a63c3683">Scrum</button><button type="button" class="chip" id="s-af1fecb8" data-id="skill-af1fecb8">Mentoring</button><button type="button" class="chip" id="s-65624538" data-id="skill-65624538">Telegram Bots</button><button type="button" class="chip" id="s-5751eea2" data-id="skill-5751eea2">C++</button><button type="button" class="chip" id="s-cc4f8bb8" data-id="skill-cc4f8bb8">Security Research</button></div></section>
+<section class="group" id="languages"><h2>Languages</h2><p class="note">Both parts are picked from lists in the form.</p><ul class="langs"><li><b>Russian</b><span>Native or bilingual proficiency</span></li><li><b>English</b><span>Full professional proficiency</span></li><li><b>Portuguese</b><span>Elementary proficiency</span></li></ul></section>
+</div>
+
+<script>
+(function () {
+  var KEY = 'linkedin-kit-copied';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+
+  var items = [].slice.call(document.querySelectorAll('[data-id]'));
+  function label(el, on) {
+    var b = el.classList.contains('chip') ? null : el.querySelector('.copy');
+    if (b) b.textContent = on ? 'Copied' : 'Copy';
+  }
+  function paint() {
+    var n = 0;
+    items.forEach(function (el) {
+      var on = !!done[el.dataset.id];
+      el.classList.toggle('done', on);
+      label(el, on);
+      if (on) n++;
+    });
+    document.getElementById('n-done').textContent = n;
+    document.getElementById('n-all').textContent = items.length;
+  }
+
+  function legacy(t) {
+    return new Promise(function (ok, fail) {
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0, t.length);
+      var good = false;
+      try { good = document.execCommand('copy'); } catch (e) {}
+      ta.remove();
+      good ? ok() : fail();
+    });
+  }
+  function copy(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(t).catch(function () { return legacy(t); });
+    }
+    return legacy(t);
+  }
+  // If the browser refuses both ways, select the text so one manual copy does it.
+  function select(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+
+  items.forEach(function (el) {
+    var chip = el.classList.contains('chip');
+    var btn = chip ? el : el.querySelector('.copy');
+    var src = chip ? el : el.querySelector('.value');
+    var t = src.textContent;
+    btn.addEventListener('click', function () {
+      copy(t).then(function () {
+        done[el.dataset.id] = 1; save(); paint();
+      }, function () {
+        select(src);
+        if (!chip) btn.textContent = 'Selected';
+      });
+    });
+  });
+  document.getElementById('reset').addEventListener('click', function () {
+    done = {}; save(); paint();
+  });
+  paint();
+})();
+</script>

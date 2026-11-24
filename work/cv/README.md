@@ -11,6 +11,13 @@
   `cv-2page.html` (needs reportlab in a venv; the script's docstring has the
   commands). Fonts are in `fonts/` (Source Sans 3, Source Serif 4, OFL).
   The script exits with an error if the result is not exactly 2 pages.
+- `linkedin.html`: the full CV split into LinkedIn form fields, plain text
+  with a copy button per field, for pasting into LinkedIn by hand (no
+  LinkedIn connector exists here). Built from `cv.html` by
+  `build_linkedin.py` (standard library only). Re-run it after any change to
+  `cv.html` and republish. It leaves out the red todo notes and the
+  unconfirmed 8%, and holds the LinkedIn-only data: months for MTS and the
+  list of individual skills.
 - Published as a private artifact: https://claude.ai/artifact/L9hPBUsXXsajFXFrU7ME7g (republish the same file path).
 
 ## Keep out of the CV (Art, 2026-11-24)
