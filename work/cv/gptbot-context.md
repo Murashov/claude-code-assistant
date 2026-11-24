@@ -47,3 +47,8 @@ Told by Art on 2026-11-24. Not on LinkedIn.
 ## Open
 
 - Real start and end dates; tech stack.
+
+## CV decisions (Art, 2026-11-24)
+
+- Do not mention being among the first few dozen such bots. True, but Art
+  would not brag about it.
