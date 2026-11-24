@@ -1,7 +1,7 @@
 # Driver's license in Brazil
 
 - Area: Documents and admin
-- Status: idea, not planned (keep visible, Art asked to be reminded)
+- Status: idea, not planned (keep visible on the list; no reminders)
 - Updated: 2026-11-23
 
 ## Goal
@@ -16,7 +16,8 @@ Get a driver's license in Brazil.
 - Now in Brazil, he is considering getting the license here.
 - He is not sure it is worth it, because the family may leave Brazil soon.
 - The project is questionable and not planned yet, but it should stay on the
-  list and Art wants reminders about it.
+  list. No reminders (2026-11-24: Art knows it needs doing but does not care
+  about it at the moment).
 
 ## Tasks
 

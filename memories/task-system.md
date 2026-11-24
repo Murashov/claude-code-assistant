@@ -28,8 +28,9 @@
   When he adds items, record them as described. Do not research, propose
   solutions, or schedule anything unless he asks.
   **Why:** he wants the full picture first and will come back to solving.
-- Art asked to be reminded about the driver's license project
-  (projects/drivers-license.md). Include it in check-ins once they exist.
+- Driver's license (projects/drivers-license.md): stays on the list, but no
+  reminders in check-ins. Art cancelled them on 2026-11-24: he knows it needs
+  doing and does not care about it right now.
 
 ## Check-in automation (built 2026-11-24)
 
