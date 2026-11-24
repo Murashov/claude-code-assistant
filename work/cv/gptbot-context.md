@@ -51,6 +51,8 @@ Told by Art on 2026-11-24. Not on LinkedIn.
 ## Dates (Art, 2026-11-24)
 
 - Developed in 2023, launched early 2024, closed towards the end of 2025.
+- On LinkedIn Art set the entry to Apr 2023 – Nov 2025 (evening of
+  2026-11-24). The CV uses the same dates so the two match.
 
 ## CV decisions (Art, 2026-11-24)
 

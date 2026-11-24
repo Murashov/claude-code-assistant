@@ -38,8 +38,6 @@ NOTES = {
     "ktool": "The 8% conversion is left out here until you confirm the figure.",
     "careem": LOGO_NOTE,
     "talabat": LOGO_NOTE,
-    "gptbot": "LinkedIn asks for start and end months. The CV has only the "
-              "years, so pick the months yourself.",
     "mts": "The CV says 2018 – 2019. These months are the start of your first "
            "stint and the end of the second, merged into one entry.",
 }
