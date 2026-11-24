@@ -9,7 +9,8 @@ Told by Art on 2026-11-24, on top of the LinkedIn text.
   the first.
 - They were the pioneers who created the architecture and common patterns
   for Flutter that the rest of the company used to migrate.
-- It became an initiative of about **50 engineers**.
+- About **50** is the total number of mobile engineers at the company
+  (Art's correction). By the end, all of them were working on Flutter.
 - Today the whole project is in Flutter: the migration they started was
   completed company-wide.
 - It cost the company a lot of money, but Art thinks it saved a lot in the
