@@ -50,6 +50,19 @@ the CV can pick the right highlights; most of this does not go in the CV.
 - Inputs are the files users upload: data from different trackers, GPS and
   position.
 
+## Mobile app: track recorder (Kotlin Multiplatform)
+
+- Separate from the backend work. The founder had built a prototype that
+  records a track using the phone's sensors, similar to Vakaros (heard as
+  "Vacaras"; Vakaros makes sailing GPS trackers).
+- Art built a cross-platform, scalable app in **Kotlin Multiplatform** for
+  **iOS and Android**, following **Clean Architecture** (the current standard
+  approach in mobile).
+- Status: a product ready to ship.
+- Strategy: part of building an **ecosystem**, not only analytics software.
+  Also a way to test ideas before the startup commits to building its own
+  **hardware**.
+
 ## To come (Art continues)
 
 - More on worker and later stages, AI report integration, team, results.
