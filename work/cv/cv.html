@@ -50,13 +50,13 @@ li{margin:2px 0}
 
 <section class="job" id="ktool">
   <div class="job-head"><span class="role">Vice President of Engineering · Ktool.Hu Sailing Analytics</span><span class="meta">Nov 2025 – Present · Dubai, UAE</span></div>
-  <p>Founding engineer at a sailing performance analytics startup. In one year, took a buggy desktop prototype to a production platform with an AI coaching report: about 500 registered sailors and an 8% conversion to paid subscriptions.</p>
+  <p>Founding engineer at a sailing performance analytics startup. In one year, took an early desktop prototype to a production platform with an AI coaching report and an 8% conversion to paid subscriptions. <span class="todo">[8%: Art to confirm the final figure]</span></p>
   <ul>
     <li>Led the move from a client-heavy PyQt desktop prototype to a Python client-server platform, migrated in stages. Shipped the first stage in two months by isolating the legacy calculation engine behind a clean interface.</li>
-    <li>Designed and built the analytics engine from scratch. A vendor-agnostic ingestion pipeline turns files from many tracker formats into one normalized, weather-enriched dataset stored as immutable Parquet on S3. A DAG of calculation nodes with hash-based caching then recomputes only the nodes a parameter or code change actually affects.</li>
-    <li>Built the AI coaching report (Claude on AWS Bedrock), released to all users in November 2026. Code makes every analytical decision and the model only explains it. Each session gets a compact, token-efficient data artifact and a prompt assembled for the boat class and wind conditions, written with the world-champion head coach. The result is consistent, trustworthy output.</li>
+    <li>Designed and built the analytics engine from scratch. A vendor-agnostic ingestion pipeline turns files from many tracker formats into one normalized, weather-enriched dataset that is stored once and never changes. A DAG of calculation nodes with hash-based caching then recomputes only the nodes a parameter or code change actually affects.</li>
+    <li>Built the AI coaching report, released to all users in November 2026. Code makes every analytical decision and the model only explains it. Each session gets a compact, token-efficient data artifact and a prompt assembled for the boat class and wind conditions, written with the world-champion head coach. The result is consistent, trustworthy output.</li>
     <li>Built a Kotlin Multiplatform track-recording app for iOS and Android (Clean Architecture), ready to ship as the first step toward the company's own tracking hardware.</li>
-    <li>Set up an AI-assisted engineering workflow (agents, skills and documentation guardrails) that lets the physicist co-founder ship production features on his own.</li>
+    <li>Set up an AI-assisted engineering workflow (agents, skills and documentation guardrails) that lets the algorithm engineer co-founder ship production features on his own.</li>
   </ul>
 </section>
 
