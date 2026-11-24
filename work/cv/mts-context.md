@@ -15,3 +15,20 @@
   continuous-looking entry without stating a month range he did not work.
   LinkedIn needs months, so there it is Art's call (two entries or one).
 - The break and the part-time remote detail are not mentioned in the CV.
+
+## More context (Art, 2026-11-24, later message)
+
+- The app was a "poor man's Duolingo": heavy UI work with a lot of
+  interaction. Art had to learn a lot of Android UI: custom views,
+  interactions and so on. This was the most important part of the job.
+- He was on the project from the beginning until launch and a bit after.
+- The app is closed and probably no longer in the store. It proved to be a
+  failure for MTS (private context; not for the CV).
+
+## CV decisions (Art, 2026-11-24, later message)
+
+- No library names. Listing them mattered to him back then, but it does not
+  look good now, and "customized libraries" reads badly.
+- Tell what the app was for, the features and what he did. Focus on the UI
+  work, not on the chat.
+- No links to the app.
