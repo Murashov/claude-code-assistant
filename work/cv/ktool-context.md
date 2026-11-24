@@ -63,6 +63,16 @@ the CV can pick the right highlights; most of this does not go in the CV.
   Also a way to test ideas before the startup commits to building its own
   **hardware**.
 
+## AI-assisted engineering
+
+- Art built a set of **skills and agents** that work with the code base.
+- More importantly, a set of **documentation guidelines that act as
+  guardrails** for the whole AI agentic system.
+- The guardrails reached the point where Art is mostly fine with the
+  quality of the code the AI produces.
+- Now looking for the right balance between understanding the code himself
+  and letting AI handle it.
+
 ## To come (Art continues)
 
 - More on worker and later stages, AI report integration, team, results.
