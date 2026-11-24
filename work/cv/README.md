@@ -13,5 +13,7 @@
   conversion rate (8%) stays only after Art confirms the figure.
 - Company secrets and over-detailed tech: the AI model and hosting
   (Claude, AWS Bedrock), storage tech (Parquet, S3). Describe in generic terms.
+- Hardware plans are not public: no mention of the company's own tracking
+  hardware. Say "ecosystem" instead.
 - Be gentle about the original prototype (no "buggy").
 - Call the physicist co-founder "algorithm engineer".
