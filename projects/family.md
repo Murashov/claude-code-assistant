@@ -12,7 +12,7 @@ Keep track of family members and the tasks that involve them.
 
 | Person | Relation | Notes |
 |--------|----------|-------|
-| Sveta | wife | co-owns the Dubai apartment; "Sveta's training" is on the Managed calendar |
+| Sveta | wife | senior product manager and designer; co-founded Nashi.Global with Art; co-owns the Dubai apartment; "Sveta's training" is on the Managed calendar |
 | Mia | daughter | born in Brazil around January 2026; has two nannies |
 | Mother | mother | lives in Russia; helping with the Russian tax return |
 | Father | father | needs help getting a crypto card like Art's; card researched, discussion pending (see backlog) |
