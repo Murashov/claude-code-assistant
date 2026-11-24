@@ -36,3 +36,8 @@ Told by Art on 2026-11-24, on top of the LinkedIn text.
 ## Takeaway
 
 - Art: a lot of good lessons.
+
+## CV decisions (Art, 2026-11-24)
+
+- The app is no longer in the store (deleted), so no store link and no app
+  name in the CV. Art is fine with the draft.

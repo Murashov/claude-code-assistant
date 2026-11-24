@@ -17,3 +17,8 @@
   hardware. Say "ecosystem" instead.
 - Be gentle about the original prototype (no "buggy").
 - Call the physicist co-founder "algorithm engineer".
+
+## Plan (Art, 2026-11-24)
+
+- Add all positions and projects first, going backwards in time, then trim
+  to 2 pages. Older positions get trimmed harder.
