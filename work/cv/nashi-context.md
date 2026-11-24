@@ -52,3 +52,10 @@ highlights; most of this does not go in the CV.
 - A great learning opportunity: technically, in business, in choosing
   partners, and in product decisions across monetization, user acquisition
   and more, not only on the technical side.
+
+## CV decisions (Art, 2026-11-24)
+
+- Keep the end date as "Present".
+- Say the project is in hibernation / maintenance state and that it was not
+  very successful, in words that are fine for any reader.
+- Include a couple of lessons learned.
