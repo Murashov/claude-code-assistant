@@ -14,17 +14,20 @@ fits a project, move it to that project file.
 - [ ] [art] Make duplicates of the keys
 - [ ] [art] Haircut: book it Thu 2026-11-26 07:00 (usually same day)
 - [ ] [art] Fix Mia's tent (wood pieces ordered on Mercado Livre 2026-11-23)
-- [ ] [art+claude] Create a CV from LinkedIn, for job applications and for
-      the startup investment. Profile:
-      https://www.linkedin.com/in/artyom-murashov-22236a127 (public view is
-      truncated; full text needed from Art). Scheduled Tue 2026-11-24
-      14:00-15:00 (deep work, Art's choice).
+- [ ] [art+claude] Finalize the CV and prepare it, maybe in different
+      versions for the different position types Art is looking at. Not
+      urgent: Art is not in an active job search; the Ktool investment may
+      come through. Open items and rules are in `work/cv/README.md`.
+- [ ] [art] Scan the paper documents that prove work experience (letters
+      from companies, maybe contracts) and save them securely. Art has the
+      papers with him.
 
 ## Done
 
 - Picnic (2026-11-08)
 - Order wood pieces for Mia's tent on Mercado Livre (2026-11-23)
 - Research a crypto card for Dad (2026-11-24)
+- Create a CV from LinkedIn: first version done, full CV, LinkedIn page and 2-page PDF in `work/cv/` (2026-11-24)
 
 ## Log
 
@@ -33,3 +36,4 @@ fits a project, move it to that project file.
 - 2026-11-23: Wood for Mia's tent ordered; fixing the tent still open.
 - 2026-11-24: Dad's card research done; discussing it with him is open, waiting for his reply.
 - 2026-11-24: Added: create CV from LinkedIn.
+- 2026-11-24: CV first version done; added: finalize the CV (versions per position type), scan work-experience documents.
