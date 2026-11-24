@@ -46,7 +46,11 @@ Told by Art on 2026-11-24. Not on LinkedIn.
 
 ## Open
 
-- Real start and end dates; tech stack.
+- Tech stack.
+
+## Dates (Art, 2026-11-24)
+
+- Developed in 2023, launched early 2024, closed towards the end of 2025.
 
 ## CV decisions (Art, 2026-11-24)
 
