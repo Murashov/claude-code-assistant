@@ -73,7 +73,7 @@ company-wide initiatives.
 - Migrated the Flutter app to null safety; helped prioritize cross-domain
   Flutter work; onboarded and mentored new developers.
 
-### Co-founder, Owly VPN (self-employed)
+### Co-founder, VPN app (self-employed) **[check: name: VPN Duck or Owly?]**
 Jan 2020 - Jan 2022 · Moscow region, Russia
 
 - Designed, built, launched and marketed a VPN app with a product-designer
