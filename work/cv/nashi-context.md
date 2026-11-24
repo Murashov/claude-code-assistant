@@ -59,3 +59,5 @@ highlights; most of this does not go in the CV.
 - Say the project is in hibernation / maintenance state and that it was not
   very successful, in words that are fine for any reader.
 - Include a couple of lessons learned.
+- Only one lesson: willingness to pay. No lesson about depending on one
+  person; Art finds it reads as resentful on a resume.
