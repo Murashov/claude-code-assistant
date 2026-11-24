@@ -40,3 +40,8 @@
 - Notifications go via PushNotification (Remote Control pushes to phone).
 - Next steps Art discussed: morning brief, Monday week-plan nudge, and
   Claude researching `[claude]` tasks on its own. Not built yet.
+- Phone test (2026-11-24, cron-fired): PushNotification reported "not sent"
+  (session counted as active), yet Art got a push on his phone, likely
+  Remote Control's own alert when a question waits for him.
+  AskUserQuestion shows as tappable on the phone. So cron-fired check-ins
+  reach him even when PushNotification is skipped.
