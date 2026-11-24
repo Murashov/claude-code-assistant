@@ -70,6 +70,10 @@ the CV can pick the right highlights; most of this does not go in the CV.
   guardrails** for the whole AI agentic system.
 - The guardrails reached the point where Art is mostly fine with the
   quality of the code the AI produces.
+- Enabled the physicist co-founder (algorithm engineer) to contribute
+  directly: Art showed him how to work in the system using the AI tools and
+  the worker module's architecture. He has shipped multiple features this
+  way, despite little experience in commercial production software.
 - Now looking for the right balance between understanding the code himself
   and letting AI handle it.
 
