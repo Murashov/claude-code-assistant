@@ -88,8 +88,29 @@ the CV can pick the right highlights; most of this does not go in the CV.
 
 ## AI report: the most important feature (Art says)
 
-- To come next; Art forgot it earlier and calls it the most important part
-  of the whole project.
+Art calls this the most important part of the whole project.
+
+- **Problem:** the analytics interface felt overwhelming to an average
+  sailor who is not into data analysis.
+- **Goal:** explain what is on the screen and help users make decisions,
+  e.g. adjust their training style.
+- **Hosting:** Claude running on **AWS Bedrock** (heard as "BlackRock"),
+  so the model can be swapped if needed.
+- **Input to the AI:** a dedicated worker output (artifact) designed for AI.
+  Very different from the frontend data: much smaller, leaner and more
+  token-efficient.
+- **Design principle:** the AI makes **no calculations and no decisions**.
+  Decisions are made in code; the AI narrates and explains them and may
+  highlight things, in a tightly confined way.
+- **Prompt:** written by Art in close collaboration with the founder and
+  head coach, who supplied the domain knowledge.
+  - A **base prompt** applied to every session.
+  - **Dynamic prompt construction** based on boat properties, boat class and
+    the wind conditions of the session (heard as "bot" and "win").
+- **Result:** dynamic prompts plus code-made decisions gave the best
+  results, much better than letting the AI decide. Output quality became
+  more consistent: a non-deterministic system made as deterministic as
+  possible without losing the value of AI.
 
 ## Mobile app: track recorder (Kotlin Multiplatform)
 
