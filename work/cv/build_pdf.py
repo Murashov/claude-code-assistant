@@ -26,9 +26,10 @@ HERE = Path(__file__).parent
 SRC = HERE / "cv-2page.html"
 OUT = HERE / "Artyom-Murashov-CV.pdf"
 
+# Colors sampled from reference/Svetlana-Anastasova-CV.pdf (Art, 2026-11-24).
 BAND, INK, MUTED, LINE, PANEL, ACCENT, DOT = (HexColor(c) for c in (
-    "#171a26", "#1e2230", "#676d7c", "#d5d8df", "#f3f4f7", "#1b5fa6", "#4a8fd6"))
-ON_BAND, ON_BAND_MUTED, BAND_LINE = (HexColor(c) for c in ("#e3e6ec", "#aab0be", "#4a4f5e"))
+    "#171a22", "#1c1f26", "#6c7486", "#d9dce2", "#f5f6f8", "#7b3a6c", "#c4589a"))
+ON_BAND, ON_BAND_MUTED, BAND_LINE = (HexColor(c) for c in ("#e3e5ea", "#aab0be", "#4a4f5c"))
 REG, SEMI, BOLD = "SourceSans3-Regular", "SourceSans3-SemiBold", "SourceSans3-Bold"
 
 W, H = A4

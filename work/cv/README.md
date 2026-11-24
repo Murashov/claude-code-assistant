@@ -107,7 +107,8 @@
   it, keeping the information. `build_pdf.py` now follows that layout: a
   dark header band with four key figures, a shaded sidebar and the
   experience in the main column, a slim band on page 2, a footer with
-  contacts. His accent is blue; hers is plum.
+  contacts. The colors are hers too, sampled from the reference (plum
+  accent, pink bullets): Art trusts her color choices over Claude's.
 - Content added for this layout, all taken from facts already in the CV and
   kept in `cv-2page.html`: the "ex-Careem (Uber), talabat (Delivery Hero),
   Yandex" line, the four header figures, and the four "Selected impact"
