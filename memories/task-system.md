@@ -30,3 +30,12 @@
   **Why:** he wants the full picture first and will come back to solving.
 - Art asked to be reminded about the driver's license project
   (projects/drivers-license.md). Include it in check-ins once they exist.
+
+## Check-in automation (built 2026-11-24)
+
+- Daily check-in runs as a session cron defined in `automation/crons.md`,
+  procedure in `automation/checkin.md`. Crons are session-only and expire
+  after 7 days, so every session syncs them from that file at start.
+- Notifications go via PushNotification (Remote Control pushes to phone).
+- Next steps Art discussed: morning brief, Monday week-plan nudge, and
+  Claude researching `[claude]` tasks on its own. Not built yet.
