@@ -5,6 +5,12 @@
   English headings, dates and obvious typos fixed. Positions are rewritten
   one at a time, newest first, starting with Ktool. Used later to update
   LinkedIn. Target: 2 A4 pages.
+- `cv-2page.html`: the condensed 2-page CV, cut down from `cv.html`. It is
+  the source of the PDF.
+- `Artyom-Murashov-CV.pdf`: the 2-page A4 PDF, built by `build_pdf.py` from
+  `cv-2page.html` (needs reportlab in a venv; the script's docstring has the
+  commands). Fonts are in `fonts/` (Source Sans 3, Source Serif 4, OFL).
+  The script exits with an error if the result is not exactly 2 pages.
 - Published as a private artifact: https://claude.ai/artifact/L9hPBUsXXsajFXFrU7ME7g (republish the same file path).
 
 ## Keep out of the CV (Art, 2026-11-24)
@@ -52,3 +58,31 @@
   says "prize winner" until the place and year are confirmed.
 - Skills: rebuilt from the rewritten roles. Telethon (on LinkedIn) is
   dropped under the no-library-names rule; ask Art if it should return.
+
+## Decisions (Art, 2026-11-24, evening)
+
+- Ktool job title is "Founding Engineer", not "Vice President of
+  Engineering".
+- "10+ years of commercial Android development" stays: he still builds a
+  mobile app that runs on Android at Ktool. "A bit of a stretch, but not a
+  lie."
+
+## What the 2-page version leaves out (2026-11-24)
+
+- Ktool: the 8% conversion (unconfirmed), "stored once and never changes",
+  the token-efficient data artifact detail, Clean Architecture on the app.
+- Nashi.Global: the product-decisions bullet (monetization, ambassadors);
+  mini-app and bot merged into the launch bullet; status cut to one line.
+- Careem: integration documentation, features in the customer and driver
+  apps, Scrum practices.
+- AI bot: links, media and image understanding; message splitting.
+- talabat: the Grocery Home Page reference, null safety migration, the
+  effects of the two Flutter initiatives.
+- VPN app: architecture names, analytics and animated UI, the two lessons.
+- Yandex: feature descriptions (only names stay), the Uber merger story.
+- MTS: Stream and MTS background, the statistics and education track
+  screens.
+- Atom: details of both apps, product decisions.
+- Samsung and ISPRAS: one line each.
+- Summary: the Scale bullet. Locations of the Russian roles shortened to
+  "Russia".

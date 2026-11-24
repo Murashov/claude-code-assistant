@@ -1,0 +1,143 @@
+<title>Artyom Murashov CV, 2 pages</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single A4 column, name block, then dated role entries */
+@page{size:A4;margin:14mm 16mm}
+:root{--ink:#1c2128;--muted:#5b6472;--line:#d5dbe3;--accent:#1f4e79;--paper:#ffffff;--todo:#b3261e;
+  --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;--display:"Source Serif 4",Georgia,serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e4e8ee;--muted:#9aa4b2;--line:#323a46;--accent:#8db8e3;--paper:#14181e;--todo:#f2b8b5;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#e4e8ee;--muted:#9aa4b2;--line:#323a46;--accent:#8db8e3;--paper:#14181e;--todo:#f2b8b5;color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font:10.5pt/1.45 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:178mm;margin:0 auto;padding-block:16px}
+h1{font:600 22pt/1.1 var(--display);margin:0;text-wrap:balance}
+.headline{color:var(--accent);font-weight:600;margin:2px 0}
+.contact{color:var(--muted);font-size:9.5pt}
+h2{font-size:10pt;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:2px;margin:14px 0 6px}
+.job{margin-bottom:10px;break-inside:avoid-page}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 12px}
+.role{font-weight:700}
+.meta{color:var(--muted);font-size:9.5pt;font-variant-numeric:tabular-nums}
+p,ul{margin:3px 0}
+ul{padding-left:16px}
+li{margin:2px 0}
+.todo{color:var(--todo);font-style:italic}
+@media print{:root{--ink:#1c2128;--muted:#5b6472;--line:#d5dbe3;--accent:#1f4e79;--paper:#fff;color-scheme:light}body{padding:0}.page{padding:0}.todo{display:none}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600&display=swap">
+
+<div class="page">
+<!-- Condensed 2-page CV. Source for Artyom-Murashov-CV.pdf (build_pdf.py).
+     The full version is cv.html. -->
+
+<header>
+  <h1>Artyom Murashov</h1>
+  <div class="headline">Founding Engineer at Ktool | Android Expert | Founder | Security Researcher</div>
+  <div class="contact">Dubai, United Arab Emirates · <a href="mailto:murashov94@gmail.com">murashov94@gmail.com</a> · <a href="https://www.linkedin.com/in/artyom-murashov-22236a127">linkedin.com/in/artyom-murashov-22236a127</a></div>
+</header>
+
+<h2>Summary</h2>
+<p>Engineering lead with over 10 years of commercial Android development, including apps used by millions of people at Yandex, talabat and Careem. Currently the founding engineer of a sailing analytics startup, where in one year I took an early desktop prototype to a production platform with an AI coaching report.</p>
+<ul>
+  <li><strong>Team leadership:</strong> tech lead of a distributed squad at Careem, lead of cross-squad initiative teams at talabat and of an Android feature team at MTS.</li>
+  <li><strong>Zero to launch:</strong> built and launched three products of my own, and the Ktool platform as its founding engineer, across mobile, back end and AI features.</li>
+  <li><strong>Outside work:</strong> app and IoT security research as a hobby, with bug bounties from Xiaomi, Whoop and others. Prize winner in Telegram's Android contest for a GPU shader animation.</li>
+</ul>
+
+<h2>Experience</h2>
+
+<section class="job" id="ktool">
+  <div class="job-head"><span class="role">Founding Engineer · Ktool.Hu Sailing Analytics</span><span class="meta">Nov 2025 – Present · Dubai, UAE</span></div>
+  <p>Joined a sailing performance analytics startup as its first engineer. In one year, took an early desktop prototype to a production platform with an AI coaching report and paid subscriptions.</p>
+  <ul>
+    <li>Led the staged move from a PyQt desktop prototype to a Python client-server platform. Shipped the first stage in two months by isolating the legacy calculation engine behind a clean interface.</li>
+    <li>Designed and built the analytics engine: a vendor-agnostic ingestion pipeline that turns many tracker formats into one normalized, weather-enriched dataset, and a DAG of calculation nodes with hash-based caching that recomputes only what a change affects.</li>
+    <li>Built the AI coaching report, released to all users in November 2026. Code makes every analytical decision and the model only explains it, with prompts assembled for the boat class and wind conditions together with the world-champion head coach.</li>
+    <li>Built a Kotlin Multiplatform track-recording app for iOS and Android, ready to ship as part of a wider product ecosystem.</li>
+    <li>Set up an AI-assisted engineering workflow (agents, skills, documentation guardrails) that lets the algorithm engineer co-founder ship production features on his own.</li>
+  </ul>
+</section>
+
+<section class="job" id="nashi">
+  <div class="job-head"><span class="role">Co-founder and Chief Technology Officer · Nashi.Global</span><span class="meta">May 2025 – Present · Global</span></div>
+  <p>Co-founded a marketplace inside Telegram where expats offer services to the Russian-speaking community abroad. Team of three, launched in 3 countries.</p>
+  <ul>
+    <li>Took the product from idea to launch in about two months as the only engineer: a Telegram mini-app on Vue.js and Django, plus a bot for moderation and user communication.</li>
+    <li>Built an AI agent system that monitors Telegram chats and finds potential leads, used for promotion and market research.</li>
+    <li>Now in maintenance mode: providers joined readily, but paying demand stayed too low. Main lesson: test willingness to pay before building the product.</li>
+  </ul>
+</section>
+
+<section class="job" id="careem">
+  <div class="job-head"><span class="role">Senior Software Engineer II, Tech Lead (Hala squad) · Careem</span><span class="meta">May 2023 – Jan 2025 · Dubai, UAE</span></div>
+  <p>Tech lead of the distributed squad that connects the Careem ride-hailing app to Hala, Dubai's city taxi, through a third-party taximeter approved by the transport regulator (RTA).</p>
+  <ul>
+    <li>Owned the squad's mobile engineering decisions and contributed to backend design. Designed High Demand Locations, a major Hala feature, and led the communication around it.</li>
+    <li>Led technical alignment between Careem, the taximeter vendor, Hala and the RTA, where every protocol change needed agreement from all sides.</li>
+    <li>Extended the protobuf-based USB protocol between the taximeter and the Android driver app, and built a remote testing setup for the physical device.</li>
+  </ul>
+</section>
+
+<section class="job" id="gptbot">
+  <div class="job-head"><span class="role">Founder · AI assistant bot for Telegram (own product)</span><span class="meta">2023 – 2025 · Side project</span></div>
+  <p>Built and ran a paid AI assistant inside Telegram on the OpenAI API, launched in early 2024. Reply threads work as separate conversations with their own context. Subscriptions with card and crypto payments kept the API cost per user below revenue. Closed in late 2025 as the market filled with similar services.</p>
+</section>
+
+<section class="job" id="talabat">
+  <div class="job-head"><span class="role">Senior Android Engineer · talabat</span><span class="meta">Jul 2021 – May 2023 · Dubai, UAE</span></div>
+  <p>Worked on the native Android and Flutter sides of the talabat app, focused on grocery shopping. Part of the squad that pioneered the company's move to Flutter, a migration that went on to cover the whole app and all of its roughly 50 mobile engineers.</p>
+  <ul>
+    <li>Among the first engineers to migrate a feature to Flutter. Our squad set the architecture and common patterns that the rest of the company followed.</li>
+    <li>Led two cross-squad Android initiatives on UI testing: a new mocking mechanism that greatly reduced flakiness, and bottleneck monitoring that cut the average UI test step duration by 30%.</li>
+    <li>Proposed a quarantine process for unstable UI tests that was adopted across the company.</li>
+    <li>Designed the architecture of several cross-platform features and was the first adopter of Flutter integration tests.</li>
+    <li>Led two Flutter initiatives: centralized dependency versioning and contract-based API generation across platforms. Onboarded and mentored new developers.</li>
+  </ul>
+</section>
+
+<section class="job" id="vpn">
+  <div class="job-head"><span class="role">Co-founder · VPN app (own product)</span><span class="meta">Jan 2020 – Jan 2022 · Side project</span></div>
+  <p>Built and launched a consumer VPN app for Android with a product designer co-founder: the Kotlin client with in-app purchases and ads, the Django back end, and a Docker setup that brings up a VPN server in a new country in one step. Also ran monetization, user acquisition and infrastructure costs.</p>
+</section>
+
+<section class="job" id="yandex">
+  <div class="job-head"><span class="role">Android Developer · Yandex Go (Yango)</span><span class="meta">Oct 2019 – Apr 2021 · Russia</span></div>
+  <p>Worked in the Android team of Yandex.Pro, the app for the company's taxi drivers and couriers, with about 600,000 monthly active drivers at the time.</p>
+  <ul>
+    <li>Contributed to the Yandex.Fuel integration and to core driver features (Driver Fix, Reposition, the Order screen, Tiredness), mostly on the map side.</li>
+    <li>Early Flutter adopter inside the company. Worked daily in code built on Uber's RIBs architecture.</li>
+    <li>Helped with a few features in the customer app, which had tens of millions of monthly active users.</li>
+  </ul>
+</section>
+
+<section class="job" id="mts">
+  <div class="job-head"><span class="role">Senior Android Developer · MTS Group (Stream)</span><span class="meta">2018 – 2019 · Russia</span></div>
+  <p>Led an Android feature team on Smart University, an interactive Duolingo-style learning app, from project start through launch. Mostly interaction-heavy UI work: custom views, drag and drop, animations, the exam flow and the in-app chat. Kotlin, MVI with Redux.</p>
+</section>
+
+<section class="job" id="atom">
+  <div class="job-head"><span class="role">Android Developer · Atom</span><span class="meta">Jul 2016 – Dec 2017 · Russia</span></div>
+  <p>The only Android developer at a small startup. Designed, built and launched Barev, a dating app for an Armenian audience, built a second app in Kotlin with Clean Architecture, and helped with the Django back end.</p>
+</section>
+
+<section class="job" id="samsung">
+  <div class="job-head"><span class="role">Junior Software Engineer · Samsung Electronics</span><span class="meta">Jul 2015 – Dec 2015 · Russia</span></div>
+  <p>Part-time C++ developer in the team building an internal Frida-like tool for static and dynamic code analysis.</p>
+</section>
+
+<section class="job" id="ispras">
+  <div class="job-head"><span class="role">Intern C++ Developer · ISPRAS (Russian Academy of Sciences)</span><span class="meta">Sep 2014 – Jun 2015 · Russia</span></div>
+  <p>Built a plugin for a binary code analysis system that reconstructs Java objects from Android emulator memory dumps.</p>
+</section>
+
+<h2>Skills</h2>
+<p><strong>Mobile:</strong> Android (Kotlin, Java) · Flutter (Dart) · Kotlin Multiplatform</p>
+<p><strong>Back end and web:</strong> Python · Django · REST APIs · Docker · Vue.js</p>
+<p><strong>AI:</strong> LLM-based product features · AI agents · AI-assisted engineering workflows</p>
+<p><strong>Architecture:</strong> MVI and Redux · Clean Architecture · MVVM · RIBs · data pipelines</p>
+<p><strong>Leadership:</strong> tech lead of distributed teams · cross-company alignment · Scrum · mentoring</p>
+<p><strong>Also:</strong> Telegram bots and mini apps · C++ · app and IoT security research</p>
+
+<h2>Education and languages</h2>
+<div class="job-head"><span class="role">Higher School of Economics · Bachelor's degree, Information Technology</span><span class="meta">2012 – 2016</span></div>
+<p>Russian (native) · English (C2) · Portuguese (A2)</p>
+</div>

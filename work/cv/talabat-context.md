@@ -21,3 +21,10 @@ Told by Art on 2026-11-24, on top of the LinkedIn text.
 
 - Art does not have the metrics. They exist; he needs to ask his friends at
   talabat. Until then the story goes in without numbers.
+
+## Team leadership (Art, 2026-11-24, later message)
+
+- At talabat he led teams too, at a larger scale than elsewhere, though
+  they were transient: ad hoc teams created to solve specific issues, for
+  the cross-squad initiatives. He led a couple of them.
+- The Summary's team leadership line must mention talabat.
