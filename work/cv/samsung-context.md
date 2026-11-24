@@ -30,3 +30,12 @@ Told by Art on 2026-11-24, on top of the LinkedIn text.
 - Do not compare it to Frida in the CV. Frida hooks running code, while
   LinkedIn describes source-to-source transformation, so the comparison may
   be inaccurate, and it adds detail the NDA note warns against.
+
+## Art's corrections (2026-11-24, later message), replacing the decisions above
+
+- The tool he meant is Frida.
+- The NDA is not a concern: he did not sign anything like that, and it
+  would have expired anyway. He removed the NDA line.
+- Describe it as Frida-like internal tooling with static and dynamic code
+  analysis. Say he took part in it and did a bit of abstract syntax tree
+  traversal and syntax highlighting. Keep it brief.
