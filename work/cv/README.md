@@ -22,3 +22,9 @@
 
 - Add all positions and projects first, going backwards in time, then trim
   to 2 pages. Older positions get trimmed harder.
+
+## Two outputs (Art, 2026-11-24)
+
+- Write the whole CV in full first and do not cut yet. The full version is
+  what goes to LinkedIn, where more text is fine.
+- After that, condense it into the 2-page CV, which will need heavy cuts.
