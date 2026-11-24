@@ -50,6 +50,22 @@ the CV can pick the right highlights; most of this does not go in the CV.
 - Inputs are the files users upload: data from different trackers, GPS and
   position.
 
+### Worker ingestion pipeline (step 1, produces the tier 0 parquet)
+
+1. **Input:** one file or a set of files from a tracker. Many tracker
+   brands, so many formats are supported.
+2. **Format detection**, then the matching **format-specific parser**.
+3. **Normalization:** the raw data frame is mapped to a predefined set of
+   expected fields. **Aliases** map fields that mean the same thing but are
+   named differently by different trackers. Result: a standard,
+   **platform-agnostic data frame**.
+4. **Enrichment:** weather data fetched from the network is added.
+5. **Derivation:** fields such as speed and course are calculated from the
+   data.
+6. **Storage:** saved as **Parquet** to **S3**. Immutable from then on,
+   except through a migration.
+7. This **tier 0 parquet** is what the later parts of worker work on.
+
 ## Mobile app: track recorder (Kotlin Multiplatform)
 
 - Separate from the backend work. The founder had built a prototype that
