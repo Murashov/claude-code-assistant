@@ -1,8 +1,8 @@
 # Proactive assistant
 
 - Area: Assistant
-- Status: idea, needs thinking (not trivial)
-- Updated: 2026-11-23
+- Status: active (check-in notifications done; research autonomy next)
+- Updated: 2026-11-24
 
 ## Goal
 
@@ -31,10 +31,14 @@ waiting to be asked.
 
 ## Tasks
 
-- [ ] [art] Think through how the proactive system should work
-      (scheduled Wed 2026-11-25 07:00)
+- [x] Notifications and interactive daily check-in (done 2026-11-24):
+      session cron from automation/crons.md, procedure in
+      automation/checkin.md, push and tappable questions tested on phone.
+- [ ] [art] Make Claude research tasks on its own (scheduled Wed
+      2026-11-25 07:00)
 - [ ] [art] Implement the Pi bridge and voice RFC (later)
 
 ## Log
 
 - 2026-11-23: Recorded at the end of backlog intake.
+- 2026-11-24: Check-in notifications built and tested. Wed slot now for research autonomy.

@@ -54,5 +54,5 @@ Task owner labels:
 | [Sport](sport.md) | Health > Sport | ongoing |
 | [Trading bot](trading-bot.md) | Money > Passive income | paused |
 | [Portuguese learning](portuguese.md) | Emigration | active |
-| [Proactive assistant](proactive-assistant.md) | Assistant | idea |
+| [Proactive assistant](proactive-assistant.md) | Assistant | active |
 | [Russian taxes after closing the business](russian-taxes.md) | Money > Taxes | active |
