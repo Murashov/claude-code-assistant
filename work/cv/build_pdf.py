@@ -6,7 +6,7 @@ Usage (reportlab is not installed system-wide, so use a venv):
 
 Reads work/cv/cv-2page.html, writes work/cv/Artyom-Murashov-CV.pdf.
 Layout: a dark header band with key figures, a shaded sidebar (profile,
-highlights, languages and contact on page 1; impact, skills and education on
+highlights and contact on page 1; skills, education and languages on
 page 2) and the experience in the main column.
 Notes marked class="todo" in the HTML are left out of the PDF.
 """
@@ -87,7 +87,6 @@ def read():
         "headline": plain(one(r'<div class="headline">(.*?)</div>', src)).split(" | "),
         "subline": plain(one(r'<div class="subline">(.*?)</div>', src)),
         "metrics": figures("metrics", src),
-        "impact": figures("impact", src),
     }
     contact = one(r'<div class="contact">(.*?)</div>', src)
     cv["location"] = plain(contact).split(" · ")[0]
@@ -144,33 +143,6 @@ class Label(Flowable):
             c.line(0, 0.4, self.width, 0.4)
 
 
-class Figure(Flowable):
-    """A large figure with a caption, for the sidebar."""
-
-    def __init__(self, value, caption, style, rule):
-        super().__init__()
-        self.value, self.rule = value, rule
-        self.caption = Paragraph(caption, style)
-        self.spaceAfter = 7
-
-    def wrap(self, avail_w, avail_h):
-        self.width = avail_w
-        self.cap_h = self.caption.wrap(avail_w, avail_h)[1]
-        self.height = 15 + self.cap_h + (7 if self.rule else 0)
-        return self.width, self.height
-
-    def draw(self):
-        c = self.canv
-        c.setFont(BOLD, 12.5)
-        c.setFillColor(ACCENT)
-        c.drawString(0, self.height - 11, self.value)
-        self.caption.drawOn(c, 0, self.height - 15 - self.cap_h)
-        if self.rule:
-            c.setStrokeColor(LINE)
-            c.setLineWidth(0.8)
-            c.line(0, 0, self.width, 0)
-
-
 def styles():
     body = ParagraphStyle("body", fontName=REG, fontSize=SIZE, leading=LEAD,
                           textColor=INK, spaceBefore=2, spaceAfter=1)
@@ -186,8 +158,6 @@ def styles():
                                textColor=MUTED, spaceBefore=1, spaceAfter=1.5),
         "early": ParagraphStyle("early", parent=body, spaceBefore=3, spaceAfter=1),
         "side": side,
-        "caption": ParagraphStyle("caption", parent=side, fontSize=7.6, leading=9.6,
-                                  textColor=MUTED, spaceAfter=0),
     }
 
 
@@ -226,9 +196,6 @@ def side_first(cv, st):
             heading("Highlights")]
     for label, text in cv["highlights"]:
         flow += [sublabel(label), Paragraph(text, st["side"])]
-    flow.append(heading("Languages"))
-    for name, level in cv["languages"]:
-        flow += [sublabel(name), Paragraph(level[0].upper() + level[1:], st["side"])]
     flow += [heading("Contact"), Paragraph(cv["location"], st["side"])]
     for href, text in cv["links"]:
         text = text.replace("/in/", "/in/<br/>")     # too long for one sidebar line
@@ -237,14 +204,14 @@ def side_first(cv, st):
 
 
 def side_later(cv, st):
-    flow = [heading("Selected impact", before=0)]
-    for i, (value, caption) in enumerate(cv["impact"]):
-        flow.append(Figure(value, caption[0], st["caption"], rule=i < len(cv["impact"]) - 1))
-    flow.append(heading("Skills", before=6))
+    flow = [heading("Skills", before=0)]
     for label, text in cv["skills"]:
         flow += [sublabel(label), Paragraph(text, st["side"])]
     flow += [heading("Education"),
-             Paragraph(f'{cv["school"]}<br/>{cv["degree"]} · {cv["years"]}', st["side"])]
+             Paragraph(f'{cv["school"]}<br/>{cv["degree"]} · {cv["years"]}', st["side"]),
+             heading("Languages")]
+    for name, level in cv["languages"]:
+        flow += [sublabel(name), Paragraph(level[0].upper() + level[1:], st["side"])]
     return flow
 
 

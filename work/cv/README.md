@@ -109,12 +109,15 @@
   experience in the main column, a slim band on page 2, a footer with
   contacts. The colors are hers too, sampled from the reference (plum
   accent, pink bullets): Art trusts her color choices over Claude's.
-- Content added for this layout, all taken from facts already in the CV and
+- Content added for this layout, taken from facts already in the CV and
   kept in `cv-2page.html`: the "ex-Careem (Uber), talabat (Delivery Hero),
-  Yandex" line, the four header figures, and the four "Selected impact"
-  figures on page 2.
-- Sidebar: Profile, Highlights, Languages, Contact on page 1; Selected
-  impact, Skills, Education on page 2. No "Open to" block like in the
-  reference, because the CV also goes to investors.
+  Yandex" line and the four header figures.
+- Sidebar: Profile, Highlights, Contact on page 1; Skills, Education,
+  Languages on page 2. No "Open to" block like in the reference, because
+  the CV also goes to investors.
+- No "Selected impact" block on page 2 (Art removed it the same evening):
+  the figures tried there were durations and head counts, not results he
+  drove. Bring it back only with real result numbers, such as the Ktool 8%
+  once confirmed or the talabat migration metrics.
 - Atom, Samsung and ISPRAS are marked `class="job early"` and are set as
   one compact "Earlier experience" block.
