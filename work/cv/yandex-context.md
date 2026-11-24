@@ -36,3 +36,13 @@ important; some vagueness is fine.
   500,000"), so the figure needs his confirmation.
 - Today the customer app has tens of millions of monthly active users. That
   is a current figure, not from his time there.
+
+## Corrections and additions (Art, 2026-11-24, later message)
+
+- Drivers app: closer to 600,000 monthly active users back then. Today
+  probably more than a million.
+- Customer app (Yandex Go): 50 million monthly active users today. Back
+  then less, but tens of millions for sure, maybe around 20 million.
+- He was a mid-level engineer. Building a feature single-handedly was not
+  expected of him, but he got exposed to quite a large scale.
+- The earlier "500,000" note above is superseded by these figures.
