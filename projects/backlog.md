@@ -22,6 +22,8 @@ fits a project, move it to that project file.
       watch open positions and send Art curated ones he could apply to, as
       part of the morning brief. Criteria will come from Art (see the
       career notes in memories/owner.md); ask before starting.
+- [ ] [art] Exchange money for some cash on hand. First research where
+      in Brazil this can be done.
 
 ## Done
 
@@ -41,3 +43,4 @@ fits a project, move it to that project file.
 - 2026-11-24: CV first version done; added: finalize the CV (versions per position type), scan work-experience documents.
 - 2026-11-25: Added: job search monitoring (not ready yet).
 - 2026-11-24: Check-in: CV slot done. Dad replied he'll try the crypto card himself; discussion item closed.
+- 2026-11-25: Added: exchange money for cash (research where first).
