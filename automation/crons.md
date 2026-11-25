@@ -25,6 +25,8 @@ are set a bit early.
 | Tag | Cron (UTC) | Sao Paulo time | Prompt |
 |-----|------------|----------------|--------|
 | `[cron:checkin]` | `47 21 * * *` | daily ~18:47-19:17 | `[cron:checkin] Daily check-in. Read automation/checkin.md and follow it.` |
+| `[cron:night]` | `7 3 * * *` | daily ~00:07-00:37 | `[cron:night] Night shift. Read automation/night.md and follow it.` |
+| `[cron:brief]` | `47 9 * * *` | daily ~06:47-07:17 | `[cron:brief] Morning brief. Read automation/brief.md and follow it.` |
 
 Job procedures live in their own files so they can change without
 re-creating the cron.

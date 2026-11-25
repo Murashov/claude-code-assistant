@@ -18,6 +18,10 @@ fits a project, move it to that project file.
 - [ ] [art] Scan the paper documents that prove work experience (letters
       from companies, maybe contracts) and save them securely. Art has the
       papers with him.
+- [ ] [claude] Job search monitoring (NOT READY YET, Art will say when):
+      watch open positions and send Art curated ones he could apply to, as
+      part of the morning brief. Criteria will come from Art (see the
+      career notes in memories/owner.md); ask before starting.
 
 ## Done
 
@@ -35,4 +39,5 @@ fits a project, move it to that project file.
 - 2026-11-24: Dad's card research done; discussing it with him is open, waiting for his reply.
 - 2026-11-24: Added: create CV from LinkedIn.
 - 2026-11-24: CV first version done; added: finalize the CV (versions per position type), scan work-experience documents.
+- 2026-11-25: Added: job search monitoring (not ready yet).
 - 2026-11-24: Check-in: CV slot done. Dad replied he'll try the crypto card himself; discussion item closed.

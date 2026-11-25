@@ -31,5 +31,6 @@ memories in `memories/`. Read only the memories a task needs.
 | `memories/owner.md` | Facts about Art: time zone (Sao Paulo), calendar structure, works from phone, Managed calendar ID and the write-only-to-Managed rule, career and job-search preferences |
 | `memories/project.md` (Cloned repositories section) | `repos/` holds other repos cloned on request, gitignored, pushed to their own remotes; `repos/manifest.txt` lists them and `scripts/repos-sync.sh` restores them |
 | `memories/environment.md` | Container facts: OS, hardware, installed tools, what can and cannot be installed, network, session tools and connectors |
-| `automation/crons.md` | Scheduled session crons (source of truth) and the sync procedure; job procedures like `automation/checkin.md` |
+| `automation/crons.md` | Scheduled session crons (source of truth) and the sync procedure; job procedures: `checkin.md`, `night.md` (night shift), `brief.md` (morning brief) |
+| `automation/questions.md` | Question backlog: whatever Claude is unsure of goes here instead of a guess; the morning brief asks one topic a day |
 | `memories/task-system.md` | How projects and tasks are tracked in `projects/`, owner labels, planned board and check-ins |

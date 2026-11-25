@@ -38,8 +38,23 @@
   procedure in `automation/checkin.md`. Crons are session-only and expire
   after 7 days, so every session syncs them from that file at start.
 - Notifications go via PushNotification (Remote Control pushes to phone).
-- Next steps Art discussed: morning brief, Monday week-plan nudge, and
-  Claude researching `[claude]` tasks on its own. Not built yet.
+- Next step Art discussed: Monday week-plan nudge. Not built yet.
+
+## Night shift, morning brief, question backlog (built 2026-11-25)
+
+- Night shift (`automation/night.md`, from 00:00 Sao Paulo): Claude does
+  all `[claude]` work it can, with no limit, until it needs Art. A night
+  with nothing to do is fine.
+- Do not assume: anything uncertain becomes a question in
+  `automation/questions.md`. **Why:** Art wants the limit on questions,
+  not on work, and no guessed facts.
+- Morning brief (`automation/brief.md`, 07:00): what was done overnight,
+  today's task with prep, and one question topic a day (max 3 connected
+  questions).
+- Periodic jobs (watchers etc.) need Art's approval first; propose them
+  as questions.
+- Job search monitoring is planned as a brief section, not ready yet
+  (backlog).
 - Phone test (2026-11-24, cron-fired): PushNotification reported "not sent"
   (session counted as active), yet Art got a push on his phone, likely
   Remote Control's own alert when a question waits for him.

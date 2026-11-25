@@ -73,6 +73,8 @@ time them close to filing.
 
 ## Open questions for Art
 
+Copied to automation/questions.md (Q1, Q2); answers get recorded here.
+
 1. Is 2027/1 the target for Celpe-Bras? How confident is your Portuguese today?
 2. When exactly did you get residency? The residence clock starts there.
 3. Did you live in any other country for a year or more besides Russia and the UAE?

@@ -143,7 +143,7 @@ const LANES = [
     {t:"Remind the investor about your share", d:"done", p:"Ktool · waiting for his reply"},
     {t:"Research a crypto card for Dad", d:"done", p:"Loose task · Dad will try it himself"},
     {t:"Create CV from LinkedIn", d:"done", p:"Loose task · finalizing is in backlog"},
-    {t:"Assistant: autonomous research", d:"Wed 07:00", p:"Assistant · check-in notifications done"},
+    {t:"Assistant: autonomous research", d:"done", p:"Assistant · night shift and morning brief built"},
     {t:"Book a haircut", d:"Thu 07:00", p:"Loose task · keep the day light"},
     {t:"Russian tax form: final return", d:"Fri 12:00", p:"Russian taxes · with your mother"},
     {t:"Transfer lion's mane to fresh agar", d:"Sat 08:00", p:"Hobby · culture has filled the plate"}
@@ -211,8 +211,8 @@ const AREAS = [
  {area:"Documents", groups:[{sub:"", projects:[
   {n:"Driver's license", s:"idea", f:"drivers-license.md", c:"Questionable if the family leaves Brazil soon. Remind Art.", tasks:[["art","Decide whether to get it in Brazil"]]}]}]},
  {area:"Assistant", groups:[{sub:"", projects:[
-  {n:"Proactive assistant", s:"active", f:"proactive-assistant.md", c:"Daily check-in notifications done 24 Nov. Next: research on its own. Pi voice RFC is related.", tasks:[
-    ["art","Make Claude research tasks on its own"],["art","Implement the Pi bridge and voice RFC, later"]]}]}]}
+  {n:"Proactive assistant", s:"active", f:"proactive-assistant.md", c:"Check-in done 24 Nov. Night shift (00:00), morning brief (07:00) and question backlog built 25 Nov. Pi voice RFC is related.", tasks:[
+    ["art","Job search monitoring in the brief, later"],["art","Implement the Pi bridge and voice RFC, later"]]}]}]}
 ];
 
 const BACKLOG = [
@@ -221,7 +221,8 @@ const BACKLOG = [
   ["art","Haircut: book Thu 07:00, usually same day"],
   ["art","Fix Mia's tent (wood ordered 23 Nov)"],
   ["both","Finalize the CV, maybe versions per position type (not urgent)"],
-  ["art","Scan work-experience papers (letters, contracts) and store securely"]
+  ["art","Scan work-experience papers (letters, contracts) and store securely"],
+  ["claude","Job search monitoring: curated positions in the brief (not ready yet)"]
 ];
 
 const LABEL = {active:"active", ongoing:"ongoing", paused:"paused", idea:"idea", decide:"decide"};

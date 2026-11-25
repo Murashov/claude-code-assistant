@@ -1,8 +1,8 @@
 # Proactive assistant
 
 - Area: Assistant
-- Status: active (check-in notifications done; research autonomy next)
-- Updated: 2026-11-24
+- Status: active (check-in, night shift and morning brief built)
+- Updated: 2026-11-25
 
 ## Goal
 
@@ -34,11 +34,15 @@ waiting to be asked.
 - [x] Notifications and interactive daily check-in (done 2026-11-24):
       session cron from automation/crons.md, procedure in
       automation/checkin.md, push and tappable questions tested on phone.
-- [ ] [art] Make Claude research tasks on its own (scheduled Wed
-      2026-11-25 07:00)
+- [x] Make Claude research tasks on its own (designed with Art
+      2026-11-25): night shift `automation/night.md` from 00:00, morning
+      brief `automation/brief.md` at 07:00, question backlog
+      `automation/questions.md`. Crons in automation/crons.md.
+- [ ] [art] Job search monitoring in the brief (later, see backlog)
 - [ ] [art] Implement the Pi bridge and voice RFC (later)
 
 ## Log
 
 - 2026-11-23: Recorded at the end of backlog intake.
 - 2026-11-24: Check-in notifications built and tested. Wed slot now for research autonomy.
+- 2026-11-25: Designed autonomous work with Art. Rules: no limit on research, Claude works until it needs Art; questions go to a backlog and the brief asks one topic a day; periodic jobs need Art's approval (as questions); a night with nothing to do is fine.
