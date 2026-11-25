@@ -1,8 +1,8 @@
 # Morning brief (07:00 Sao Paulo)
 
-Goal: tell Art what Claude did overnight and get the answers Claude needs,
-without flooding him. Agreed with Art on 2026-11-25. He reads it on the
-phone: keep it short.
+Goal: tell Art what Claude did overnight, then let him answer as many
+open questions as he wants. Agreed with Art on 2026-11-25. He reads it on
+the phone: keep it short.
 
 ## When the cron fires
 
@@ -20,19 +20,27 @@ phone: keep it short.
    `Brief: 3 citizenship tasks done overnight, 1 question waiting.`
 4. Write the brief as short text: Done overnight (one line each), Today
    (task plus prep), and links to longer results.
-5. Ask today's question(s) with `AskUserQuestion` (tappable options plus
-   Other for free text).
+5. Question loop (if any question is open), see below.
 6. Run the cron sync from `automation/crons.md`.
 
-## Question limit
+## Question loop (changed by Art 2026-11-25)
 
-- One question a day, or a few closely connected ones on the same topic
-  (at most 3). Never a mix of topics.
-- Pick by: deadlines first, then what unblocks the most Claude work, then
+No daily limit: Art decides how many to answer. Some days none, some days
+ten.
+
+1. After the brief, ask ONE question as plain text in the message. Do not
+   use `AskUserQuestion` for the question itself: it has no voice
+   dictation and long answers are awkward to type. Then stop and wait for
+   his reply.
+2. When he replies, record the answer (see below), then use
+   `AskUserQuestion` with two options: "One more" / "Stop".
+3. "One more": ask the next question the same way and repeat. "Stop" (or
+   no reply): end. Unanswered questions just stay open; that is fine.
+- Ask one question per message. If a backlog item holds several asks,
+  split it and ask them one by one.
+- Order: deadlines first, then what unblocks the most Claude work, then
   oldest first.
-- If yesterday's question is still unanswered, ask it again instead of a
-  new one.
-- Proposals for periodic jobs are questions too and follow the same limit.
+- Proposals for periodic jobs are questions too.
 
 ## When Art answers
 

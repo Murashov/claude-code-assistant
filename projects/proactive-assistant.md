@@ -46,3 +46,4 @@ waiting to be asked.
 - 2026-11-23: Recorded at the end of backlog intake.
 - 2026-11-24: Check-in notifications built and tested. Wed slot now for research autonomy.
 - 2026-11-25: Designed autonomous work with Art. Rules: no limit on research, Claude works until it needs Art; questions go to a backlog and the brief asks one topic a day; periodic jobs need Art's approval (as questions); a night with nothing to do is fine.
+- 2026-11-25: Brief questions changed: no daily limit; one plain-text question at a time (voice dictation), then "One more" / "Stop".

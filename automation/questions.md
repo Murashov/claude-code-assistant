@@ -2,7 +2,8 @@
 
 Things Claude needs from Art. Filled by the night shift and any session
 whenever Claude is not sure of something (do not assume). Asked by the
-morning brief, one topic a day (rules in `automation/brief.md`).
+morning brief, one at a time for as long as Art wants (rules in
+`automation/brief.md`).
 
 Format: `### Q<n> (topic) short title`, then what to ask, why it matters
 (what it unblocks), added date, asked dates.

@@ -46,11 +46,14 @@
   all `[claude]` work it can, with no limit, until it needs Art. A night
   with nothing to do is fine.
 - Do not assume: anything uncertain becomes a question in
-  `automation/questions.md`. **Why:** Art wants the limit on questions,
-  not on work, and no guessed facts.
+  `automation/questions.md`. **Why:** Art wants no guessed facts; he
+  controls how many questions he answers.
 - Morning brief (`automation/brief.md`, 07:00): what was done overnight,
-  today's task with prep, and one question topic a day (max 3 connected
-  questions).
+  today's task with prep, then a question loop: one question as plain
+  text, wait for the answer, then AskUserQuestion "One more" / "Stop".
+  No daily limit; Art chooses how many (0 to 10+).
+  **Why:** answers via AskUserQuestion have no voice dictation and long
+  typing on the phone is awkward; his energy varies by day.
 - Periodic jobs (watchers etc.) need Art's approval first; propose them
   as questions.
 - Job search monitoring is planned as a brief section, not ready yet
