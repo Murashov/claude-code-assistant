@@ -25,9 +25,11 @@ Stay in regular touch with close friends.
 
 ## Tasks
 
-- [ ] [art] Check in with Pogos, and discuss whether to sell the PC he keeps
+- [ ] [art] Check in with Pogos: catch up, work opportunities, investments,
+      and whether to sell the PC he keeps. Planned Thu 2026-11-26 15:00.
 - [ ] [art] Write to Danya
 
 ## Log
 
 - 2026-11-23: Recorded during backlog intake.
+- 2026-11-25: Pogos check-in planned Thu 26 15:00; added topics: catch up, work opportunities, investments.
