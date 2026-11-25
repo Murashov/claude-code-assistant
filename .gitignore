@@ -4,3 +4,4 @@
 __pycache__/
 repos/*
 !repos/manifest.txt
+.claude/scheduled_tasks.lock

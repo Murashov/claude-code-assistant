@@ -55,3 +55,4 @@ Surveyed 2026-11-01. Re-check if something below stops working.
   `git config user.name "Art Murashov"` and
   `git config user.email "artmurashovv@gmail.com"` in /workspace (repo-local),
   matching the existing commit history.
+- Push rule (2026-11-25): `.claude/settings.json` allows `git push -q origin main` so unattended jobs (night shift) can push; Art approved it.
