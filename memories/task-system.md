@@ -60,3 +60,9 @@
   Remote Control's own alert when a question waits for him.
   AskUserQuestion shows as tappable on the phone. So cron-fired check-ins
   reach him even when PushNotification is skipped.
+
+## Do not repeat the cron caveat (Art, 2026-11-25)
+
+- Do not tell Art that crons are session-only or expire after 7 days. The
+  sync step in `automation/crons.md` already handles it.
+  **Why:** he finds the repeated warning pointless, since this was fixed.
