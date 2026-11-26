@@ -82,6 +82,24 @@ would push the exam to around October 2027.
 Watch validity dates: certificates usually expire after about 90 days, so
 time them close to filing.
 
+### Points to verify (later, when Art is ready)
+
+Public sources only for now (Art, 2026-11-26). No emails yet. When Art is
+ready: email MJ / Celin-UFPR, or ask his friend who is an immigration
+consultant. Collect the "to verify" items here:
+
+- [ ] [art] Later: settle the open points with an official answer or the
+      immigration consultant friend:
+      - Is the Dubai police certificate needed (MJ asks only for the
+        country of origin)?
+      - Allowed absences from Brazil during the 1-year period.
+      - Exact residence start date used for the count (CRNM date vs
+        authorization).
+      - Does a Celin-UFPR immigrant course certificate count?
+      - Minimum Celpe-Bras level.
+      - How old the Russian certificate may be at filing; electronic
+        apostille accepted?
+
 ### 3. Filing
 
 - [x] [claude] Build the full document checklist for the naturalization
@@ -118,3 +136,4 @@ Copied to automation/questions.md (Q1, Q2); answers get recorded here.
 - 2026-11-26: Night shift: requirements, document checklist, Portuguese proof options, Celpe-Bras centre, Russian certificate and translators researched (docs/citizenship/naturalization-research.md). New questions Q5, Q6.
 - 2026-11-26: Art: 10-year CRNM, start around 20 Mar 2026; filing possible from about late Mar 2027.
 - 2026-11-26: Art: needs the Portuguese proof by April-May 2027, ideally in Curitiba; Celpe-Bras only if nothing else fits. Research task added.
+- 2026-11-26: Art: public sources only for now; emails or his immigration consultant friend later. Added a points-to-verify list.

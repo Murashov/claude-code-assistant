@@ -64,13 +64,16 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   Celpe-Bras if nothing else fits. Research task added. Current level not
   answered yet (keep in Q1).
 
-### Q6 (citizenship) May Claude email the authorities and UFPR?
+### Q6 (citizenship) May Claude email the authorities and UFPR? (answered)
 - Ask: Can I draft (you send) emails to (a) dinat@mj.gov.br: is the Dubai
   certificate needed, and which absence limit applies to the 1-year route;
   (b) Celin-UFPR: does their PLA course certificate count for
   naturalization, and the next course dates?
 - Why: these "to verify" points cannot be settled from public pages.
 - Added: 2026-11-26
+- Answered 2026-11-26: no, public sources only for now. The points are
+  listed in projects/brazil-citizenship.md ("Points to verify"); later
+  Art may email or ask his immigration consultant friend.
 
 ## Answered
 
