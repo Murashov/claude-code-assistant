@@ -25,7 +25,8 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   document checklist.
 - Answered 2026-11-26: 10-year CRNM (indefinite), start around 20 Mar
   2026, exact date Art checks later. Still open: other countries lived in
-  for 1+ year; someone in Russia for the certificate.
+  for 1+ year. Russian certificate answered 2026-11-26: Mom or the São
+  Paulo consulate, decide about January 2027 (see the project file).
 - Asked: 2026-11-26 (residency part)
 - Note (2026-11-26): the MJ page asks for the criminal record only from
   the country of origin, so "other countries" matters less now; still worth

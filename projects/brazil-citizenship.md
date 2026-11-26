@@ -67,6 +67,16 @@ would push the exam to around October 2027.
       only; apostille on the paper original from the MVD; sworn translation
       in Brazil; Brazilian federal + state court certificates for the last
       4 years. Validity at filing is to verify.)
+- [ ] [art] Decide by about January 2027 how to get the Russian
+      certificate (Art, 2026-11-26). Options: (1) Mom requests it in
+      Russia and brings it, either visiting Curitiba or meeting in Dubai
+      (depends on many factors, not ready to plan); (2) Art and Sveta fly
+      to the Russian consulate in São Paulo (slots are hard to get, so
+      book months ahead).
+- [ ] [claude] Research for that decision: how long the certificate is
+      valid (Russian side and what Brazil accepts at filing), and the
+      São Paulo consulate route (can it issue or request the certificate
+      with apostille, how to book, wait times).
 - [ ] [art] Russia: request the certificate of no criminal record (справка о
       несудимости), likely via Gosuslugi or through a representative;
       apostille in Russia
@@ -137,3 +147,4 @@ Copied to automation/questions.md (Q1, Q2); answers get recorded here.
 - 2026-11-26: Art: 10-year CRNM, start around 20 Mar 2026; filing possible from about late Mar 2027.
 - 2026-11-26: Art: needs the Portuguese proof by April-May 2027, ideally in Curitiba; Celpe-Bras only if nothing else fits. Research task added.
 - 2026-11-26: Art: public sources only for now; emails or his immigration consultant friend later. Added a points-to-verify list.
+- 2026-11-26: Art: Russian certificate via Mom (visit or meet in Dubai) or the São Paulo consulate; decide about January 2027. Validity research added.
