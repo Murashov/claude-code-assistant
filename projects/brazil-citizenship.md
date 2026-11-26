@@ -82,6 +82,17 @@ time them close to filing.
       form, then the PF appointment)
 - [ ] [art] File the application
 
+## Residence (Art, 2026-11-26)
+
+- CRNM issued for 10 years, so indefinite residence (temporary cards
+  expire with the authorization). Many people Art knows got citizenship
+  on the same card type.
+- Card date around 20 March 2026 (Art will check the exact date).
+- Clock: counted from the indefinite residence authorization or its PF
+  registration, not the protocol; MJ counts back from the filing date and
+  warns that the CRNM date may differ (to verify the exact date). With
+  about 20 Mar 2026, earliest filing is about late March 2027.
+
 ## Open questions for Art
 
 Copied to automation/questions.md (Q1, Q2); answers get recorded here.
@@ -97,3 +108,4 @@ Copied to automation/questions.md (Q1, Q2); answers get recorded here.
 - 2026-11-23: Project created from Art's description. Checked Celpe-Bras
   2026 dates (2026/2 registration already closed).
 - 2026-11-26: Night shift: requirements, document checklist, Portuguese proof options, Celpe-Bras centre, Russian certificate and translators researched (docs/citizenship/naturalization-research.md). New questions Q5, Q6.
+- 2026-11-26: Art: 10-year CRNM, start around 20 Mar 2026; filing possible from about late Mar 2027.

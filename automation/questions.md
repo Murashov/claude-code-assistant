@@ -17,12 +17,16 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   short.
 - Added: 2026-11-25 (from projects/brazil-citizenship.md)
 
-### Q2 (citizenship) Residency date and countries lived in
+### Q2 (citizenship) Residency date and countries lived in (partly answered)
 - Ask: When exactly did you get residency? Besides Russia and the UAE, did
   you live in any other country for a year or more? Is there someone in
   Russia who can request and apostille the criminal record certificate?
 - Why: sets the residence clock and the list of certificates for the
   document checklist.
+- Answered 2026-11-26: 10-year CRNM (indefinite), start around 20 Mar
+  2026, exact date Art checks later. Still open: other countries lived in
+  for 1+ year; someone in Russia for the certificate.
+- Asked: 2026-11-26 (residency part)
 - Note (2026-11-26): the MJ page asks for the criminal record only from
   the country of origin, so "other countries" matters less now; still worth
   asking in case MJ asks later. Also ask: does your CRNM say "prazo
