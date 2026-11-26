@@ -9,7 +9,7 @@ fits a project, move it to that project file.
       Was on the Managed calendar 2026-11-13.
 
 - [ ] [art] Make duplicates of the keys
-- [ ] [art] Haircut: book it Thu 2026-11-26 07:00 (usually same day)
+- [ ] [art] Haircut: booked for Fri 2026-11-27 13:00
 - [ ] [art] Fix Mia's tent (wood pieces ordered on Mercado Livre 2026-11-23)
 - [ ] [art+claude] Finalize the CV and prepare it, maybe in different
       versions for the different position types Art is looking at. Not
@@ -44,3 +44,4 @@ fits a project, move it to that project file.
 - 2026-11-25: Added: job search monitoring (not ready yet).
 - 2026-11-24: Check-in: CV slot done. Dad replied he'll try the crypto card himself; discussion item closed.
 - 2026-11-25: Added: exchange money for cash (research where first).
+- 2026-11-26: Haircut booked for Fri 27 13:00 (on the Managed calendar).
