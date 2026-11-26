@@ -23,6 +23,11 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   Russia who can request and apostille the criminal record certificate?
 - Why: sets the residence clock and the list of certificates for the
   document checklist.
+- Note (2026-11-26): the MJ page asks for the criminal record only from
+  the country of origin, so "other countries" matters less now; still worth
+  asking in case MJ asks later. Also ask: does your CRNM say "prazo
+  indeterminado"? Naturalization needs indefinite residence, and the
+  1-year clock starts on that date.
 - Added: 2026-11-25 (from projects/brazil-citizenship.md)
 
 ### Q3 (periodic) Watch for the Celpe-Bras 2027/1 edital
@@ -40,6 +45,24 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   friends.
 - Why: finishes the CV first version. Not urgent (no active job search).
 - Added: 2026-11-25 (from work/cv/cv.html)
+
+### Q5 (citizenship) Portuguese proof: exam or university course
+- Ask: Besides Celpe-Bras, a passed Portuguese course for immigrants at an
+  MEC-accredited university is accepted (e.g. Celin-UFPR). Would you take
+  a course instead of, or before, the exam? Any preference for in-person
+  vs online?
+- Why: could be faster than Celpe-Bras 2027/1; decides what the
+  preparation plan looks like. Details:
+  docs/citizenship/naturalization-research.md section 3.
+- Added: 2026-11-26
+
+### Q6 (citizenship) May Claude email the authorities and UFPR?
+- Ask: Can I draft (you send) emails to (a) dinat@mj.gov.br: is the Dubai
+  certificate needed, and which absence limit applies to the 1-year route;
+  (b) Celin-UFPR: does their PLA course certificate count for
+  naturalization, and the next course dates?
+- Why: these "to verify" points cannot be settled from public pages.
+- Added: 2026-11-26
 
 ## Answered
 
