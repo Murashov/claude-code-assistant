@@ -48,6 +48,14 @@ would push the exam to around October 2027.
       MEC-accredited university is also accepted. See the research doc.)
 - [ ] [claude] Watch for the 2027/1 edital (expected around February 2027)
       and put the registration window on the Managed calendar
+- [ ] [claude] Find every Portuguese proof Art can get by April-May 2027
+      without leaving Curitiba (Art, 2026-11-26). Celpe-Bras is harder, so
+      prefer an alternative if one fits: Celin-UFPR immigrant course
+      (dates, whether its certificate is accepted, Art thinks he may have
+      missed the current window), other MEC-accredited university courses
+      for immigrants in Curitiba or online, ENCCEJA dates and where it is
+      taken, and Celpe-Bras 2027/1 as the fallback (registration, exam,
+      results date vs the April-May deadline). Compare timing.
 - [ ] [claude?] Plan preparation: weekly practice blocks, mock exams
       (needs Art's current level)
 
@@ -109,3 +117,4 @@ Copied to automation/questions.md (Q1, Q2); answers get recorded here.
   2026 dates (2026/2 registration already closed).
 - 2026-11-26: Night shift: requirements, document checklist, Portuguese proof options, Celpe-Bras centre, Russian certificate and translators researched (docs/citizenship/naturalization-research.md). New questions Q5, Q6.
 - 2026-11-26: Art: 10-year CRNM, start around 20 Mar 2026; filing possible from about late Mar 2027.
+- 2026-11-26: Art: needs the Portuguese proof by April-May 2027, ideally in Curitiba; Celpe-Bras only if nothing else fits. Research task added.

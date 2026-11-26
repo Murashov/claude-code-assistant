@@ -50,7 +50,7 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
 - Why: finishes the CV first version. Not urgent (no active job search).
 - Added: 2026-11-25 (from work/cv/cv.html)
 
-### Q5 (citizenship) Portuguese proof: exam or university course
+### Q5 (citizenship) Portuguese proof: exam or university course (answered)
 - Ask: Besides Celpe-Bras, a passed Portuguese course for immigrants at an
   MEC-accredited university is accepted (e.g. Celin-UFPR). Would you take
   a course instead of, or before, the exam? Any preference for in-person
@@ -59,6 +59,10 @@ Format: `### Q<n> (topic) short title`, then what to ask, why it matters
   preparation plan looks like. Details:
   docs/citizenship/naturalization-research.md section 3.
 - Added: 2026-11-26
+- Answered 2026-11-26: prefer anything easier than Celpe-Bras that gives a
+  valid proof by April-May 2027, ideally without leaving Curitiba;
+  Celpe-Bras if nothing else fits. Research task added. Current level not
+  answered yet (keep in Q1).
 
 ### Q6 (citizenship) May Claude email the authorities and UFPR?
 - Ask: Can I draft (you send) emails to (a) dinat@mj.gov.br: is the Dubai
