@@ -25,8 +25,9 @@ File the final Russian tax return for the business Art closed.
 ## Tasks
 
 - [ ] [art] File the final tax return for the closed business, with help
-      from someone in Russia (e.g. mother) (scheduled Fri 2026-11-27 12:00)
+      from someone in Russia (e.g. mother) (moved to Tue 2026-12-01 07:00)
 
 ## Log
 
 - 2026-11-23: Project recorded during backlog intake.
+- 2026-11-28: Check-in: Fri 27 slot missed; Art moved it to Tue 1 Dec 07:00.

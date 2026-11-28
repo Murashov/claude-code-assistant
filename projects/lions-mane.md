@@ -16,9 +16,10 @@
 
 ## Tasks
 
-- [ ] [art] Transfer the culture to fresh agar plates (scheduled Sat
-      2026-11-28 08:00)
+- [ ] [art] Transfer the culture to fresh agar plates (moved to Sun
+      2026-11-29 08:00)
 
 ## Log
 
 - 2026-11-23: Recorded during backlog intake.
+- 2026-11-28: Check-in: transfer moved to Sun 29 08:00.
